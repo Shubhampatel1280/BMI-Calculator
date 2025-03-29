@@ -45,39 +45,3 @@ function calculateBMI() {
 document.addEventListener("DOMContentLoaded", () => {
     showSection('home');
 });
-
-//Tejas
-function showWorkout(level) {
-    // Hide the workout plan buttons by using display:"none";
-    document.getElementById('workoutPlan').style.display = "none";
-
-    // Hide all plans first(this is when the buttons are visible the plans are invisible/hidden)
-    document.getElementById('beginnerPlan').style.display = "none";
-    document.getElementById('intermediatePlan').style.display = "none";
-    document.getElementById('advancedPlan').style.display = "none";
-
-    // Show the selected plan and the back button(this is when a plan is selected the back buttons and the plan description is visible and the other buttons are invisible/hidden)
-    if (level === "beginner") {
-        document.getElementById('beginnerPlan').style.display = "block";
-    } else if (level === "intermediate") {
-        document.getElementById('intermediatePlan').style.display = "block";
-    } else if (level === "advanced") {
-        document.getElementById('advancedPlan').style.display = "block";
-    }
-
-    // Shows the back button when clicked on plans
-    document.getElementById('backButton').style.display = "block";
-}
-
-function goBack() {
-    // Hide all workout plans when clicked "back"
-    document.getElementById('beginnerPlan').style.display = "none";
-    document.getElementById('intermediatePlan').style.display = "none";
-    document.getElementById('advancedPlan').style.display = "none";
-
-    // Shows the workout plan selection buttons again after clicking "back"
-    document.getElementById('workoutPlan').style.display = "block";
-
-    // Hides the "back" button when back to plan selection page
-    document.getElementById('backButton').style.display = "none";
-}
