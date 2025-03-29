@@ -18,7 +18,7 @@ function addinchesinput() {
 function calculateBMI() {
         let weight = document.getElementById("weight").value;
         let height = document.getElementById("height").value;
-        if (document.getElementById('heightunit').value=="select-unit" || document.getElementById('weightunit').value=="select-unit") {
+        if (document.getElementById('heightunit').value=="select-unit" ||document.getElementById('weightunit').value=="select-unit") {
             document.getElementById("bmiResult").innerText = "Invalid input: Please select weight and height units.";
             return;
         }
@@ -31,15 +31,22 @@ function calculateBMI() {
         }
         weight = parseFloat(weight);
         height = parseFloat(height);
-    //Tejas and shubham
         if (weight > 0 && height > 0) {
             let bmi = (weight / (height * height)).toFixed(2);
-            document.getElementById("bmiResult").innerHTML = 'Your BMI: ' + bmi + '<br><br>' + 
-            'Do you need a diet and workout plan? <br>' + 
-            '<button onclick="showSection(\'workoutPlan\')">Yes</button>';
+            document.getElementById("bmiResult").innerText = "Your BMI: " + bmi;
         } else {
             document.getElementById("bmiResult").innerText = "Please enter valid values.";
         }
+
+    // let weight = document.getElementById("weight").value;
+    // let height = document.getElementById("height").value;
+
+    // if (weight > 0 && height > 0) {
+    //     let bmi = (weight / (height * height)).toFixed(2);
+    //     document.getElementById("bmiResult").innerText = "Your BMI: " + bmi;
+    // } else {
+    //     document.getElementById("bmiResult").innerText = "Please enter valid values.";
+    // }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
