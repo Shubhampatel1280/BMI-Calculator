@@ -59,7 +59,6 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    margin: 10px;
 }
 
 button:hover {
@@ -99,7 +98,6 @@ input, select {
     margin-top: 15px;
     text-align: left;
 }
-
 /* New Styles for Workout Plan Section(Tejas) */
 #workoutPlan button {
     display: inline-block;

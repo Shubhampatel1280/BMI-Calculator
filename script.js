@@ -40,6 +40,16 @@ function calculateBMI() {
         } else {
             document.getElementById("bmiResult").innerText = "Please enter valid values.";
         }
+
+    // let weight = document.getElementById("weight").value;
+    // let height = document.getElementById("height").value;
+
+    // if (weight > 0 && height > 0) {
+    //     let bmi = (weight / (height * height)).toFixed(2);
+    //     document.getElementById("bmiResult").innerText = "Your BMI: " + bmi;
+    // } else {
+    //     document.getElementById("bmiResult").innerText = "Please enter valid values.";
+    // }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
