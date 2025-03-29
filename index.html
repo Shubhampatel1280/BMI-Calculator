@@ -6,7 +6,7 @@
     <title>Diet & Workout Suggestion System</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     </style>
 </head>
 <body>
@@ -19,29 +19,30 @@
             <li><a href="#" onclick="showSection('bmi')">Check Your BMI</a></li>
         </ul>
     </nav>
-    <div id="home" class="section">
+    
+    <div id="home" class="section active">
         <h1>Welcome to Diet & Workout Suggestion System</h1>
         <p>This is the Home Page.</p>
     </div>
 
-    <div id="products" class="section" style="display: none;">
+    <div id="products" class="section">
         <h1>Our Products</h1>
         <p>Here you can find various diet and supplement products.</p>
     </div>
 
-    <div id="about" class="section" style="display: none;">
+    <div id="about" class="section">
         <h1>About Us</h1>
         <p>We provide the best diet and workout plans for you.</p>
     </div>
 
-    <div id="contact" class="section" style="display: none;">
+    <div id="contact" class="section">
         <h1>Contact Us</h1>
         <p>Email: support@example.com</p>
         <p>Phone: +123 456 7890</p>
     </div>
-    <div id="bmi" class="section" style="display: none;">
+
+    <div id="bmi" class="section">
         <h1>Check Your BMI</h1>
-        
         <label>Weight:</label>
         <select id="weightunit">
             <option selected disabled value="select-unit">Select Unit</option>
@@ -61,6 +62,34 @@
         <button onclick="calculateBMI()">Calculate BMI</button>
         <p id="bmiResult"></p>
     </div>
+<!-- Tejas -->
+    <div id="workoutPlan" class="section" style="display: none;">
+        <h1>Select Your Workout Plan</h1>
+        <button onclick="showWorkout('beginner')">Beginner</button>
+        <button onclick="showWorkout('intermediate')">Intermediate</button>
+        <button onclick="showWorkout('advanced')">Advanced</button>
+    </div>
+    
+    <!-- Workout Plans (This section is initially hidden since we are doing everything on a single page) -->
+    <div id="beginnerPlan" class="section" style="display: none;">
+        <h1>Beginner Workout & Diet Plan</h1>
+        <p>Basic diet and workout suggestions will go here.</p>
+    </div>
+    
+    <div id="intermediatePlan" class="section" style="display: none;">
+        <h1>Intermediate Workout & Diet Plan</h1>
+        <p>More structured diet and workout suggestions will go here.</p>
+    </div>
+    
+    <div id="advancedPlan" class="section" style="display: none;">
+        <h1>Advanced Workout & Diet Plan</h1>
+        <p>Intensive diet and workout strategies will go here.</p>
+    </div>
+    
+    <!-- Back Button (Initially Hidden and only appears when clicked on plans) -->
+    <button id="backButton" onclick="goBack()" style="display: none;">Back</button>
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
