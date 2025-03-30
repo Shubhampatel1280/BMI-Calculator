@@ -31,7 +31,7 @@ function calculateBMI() {
         }
         weight = parseFloat(weight);
         height = parseFloat(height);
-    //Tejas and shubham
+    //Tejas & Shubham
         if (weight > 0 && height > 0) {
             let bmi = (weight / (height * height)).toFixed(2);
             document.getElementById("bmiResult").innerHTML = 'Your BMI: ' + bmi + '<br><br>' + 
@@ -48,22 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Tejas
 function showWorkout(level) {
-    // Hide the workout plan buttons by using display:"none";
+    // Hide the workout plan buttons
     document.getElementById('workoutPlan').style.display = "none";
 
-    // Hide all plans first(this is when the buttons are visible the plans are invisible/hidden)
+    // Hide all plans initially
     document.getElementById('beginnerPlan').style.display = "none";
     document.getElementById('intermediatePlan').style.display = "none";
     document.getElementById('advancedPlan').style.display = "none";
 
-    // Show the selected plan and the back button(this is when a plan is selected the back buttons and the plan description is visible and the other buttons are invisible/hidden)
-    if (level === "beginner") {
-        document.getElementById('beginnerPlan').style.display = "block";
-    } else if (level === "intermediate") {
-        document.getElementById('intermediatePlan').style.display = "block";
-    } else if (level === "advanced") {
-        document.getElementById('advancedPlan').style.display = "block";
-    }
     let weight = parseFloat(document.getElementById("weight").value);
     let height = parseFloat(document.getElementById("height").value);
 
@@ -76,8 +68,25 @@ function showWorkout(level) {
         weight = weight * 0.453592; // Convert to kg
     }
 
-    // Shows the back button when clicked on plans
+    // **Ensure BMI is calculated correctly**
+    let bmi = weight / (height * height);
+    bmi = parseFloat(bmi.toFixed(2)); // Round to 2 decimal places
+
+    console.log("BMI:", bmi, "Level:", level); // Debugging log
+
+    // Show the selected plan
+    if (level === "beginner") {
+        document.getElementById('beginnerPlan').style.display = "block";
+    } else if (level === "intermediate") {
+        document.getElementById('intermediatePlan').style.display = "block";
+    } else if (level === "advanced") {
+        document.getElementById('advancedPlan').style.display = "block";
+    }
+
+    // Show the back button
     document.getElementById('backButton').style.display = "block";
+
+    // **Pass the correct BMI to getDietAndWorkoutPlan**
     getDietAndWorkoutPlan(bmi, level, weight, height);
 }
 function goBack() {
@@ -92,12 +101,13 @@ function goBack() {
     // Hides the "back" button when back to plan selection page
     document.getElementById('backButton').style.display = "none";
 }
-// Shubham
+// Shubham & Joy
 function getDietAndWorkoutPlan(bmi, level, weight, height) {
     let plan = "";
     let recommendation = "";
     let diet = "";
     let workout = "";
+    let goal = (bmi < 18.5) ? "gain" : (bmi > 24.9) ? "loss" : "maintain";
     let minWeight=18.5*(height * height);
     let midWeight=21.7*(height * height);
     let maxWeight=24.9*(height * height);
@@ -114,30 +124,58 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
         recommendation = "You are at a perfect weight!";
     }
     
-    if (bmi < 18.5) {
-        diet = level === "beginner" ? "High-calorie meals with rice, eggs, chicken, and dairy." :
-               level === "intermediate" ? "Increase protein intake with whey, lean meats, and nuts." :
-               "High protein, creatine, and resistance training-focused nutrition.";
-        workout = "Strength training with progressive overload and minimal cardio.";
-    } else if (bmi >= 18.5 && bmi < 24.9) {
-        diet = level === "beginner" ? "Balanced diet with proteins, carbs, and healthy fats." :
-               level === "intermediate" ? "Lean proteins, complex carbs, and hydration focus." :
-               "Customized macros with calculated calorie intake and advanced supplements.";
-        workout = "Strength and endurance workouts with moderate cardio.";
-    } else if (bmi >= 25 && bmi < 29.9) {
-        diet = level === "beginner" ? "Lower carbs, high fiber, and lean proteins." :
-               level === "intermediate" ? "Include intermittent fasting and meal timing strategies." :
-               "Strict low-carb, high-protein diet with fat-burning supplements.";
-        workout = "High-intensity interval training (HIIT) and strength workouts.";
-    } else {
-        diet = "Strict calorie deficit with portion control and nutrient-dense foods.";
-        workout = "Low-impact workouts like swimming, walking, and gradual strength training.";
+    if (bmi < 18.5) { // Underweight - Need to gain
+        diet = `<div class="diet-plan">
+                    <h2>${level.charAt(0).toUpperCase() + level.slice(1)} Diet Plan</h2>
+                    <div>Breakfast: ${level === "beginner" ? "Scrambled eggs + toast + fruit" : level === "intermediate" ? "Oats + whey + banana" : "Eggs + toast + avocado"}</div>
+                    <div>Lunch: ${level === "beginner" ? "Grilled chicken + brown rice" : level === "intermediate" ? "Chicken breast + sweet potato" : "Lean beef + quinoa"}</div>
+                    <div>Dinner: ${level === "beginner" ? "Fish + quinoa + salad" : level === "intermediate" ? "Grilled fish + brown rice" : "Grilled chicken + mashed potatoes"}</div>
+                </div>`;
+    
+        workout = `<div class="workout-plan">
+                    <h2>${level.charAt(0).toUpperCase() + level.slice(1)} Workout Plan</h2>
+                    <div>Squats – ${level === "beginner" ? "3x10" : level === "intermediate" ? "4x12" : "5x12"} <img src='gym.gif'></div>
+                    <div>Push-ups – ${level === "beginner" ? "3x8" : level === "intermediate" ? "4x12" : "5x15"} <img src='weighted-push-up.gif'></div>
+                    <div>Dumbbell Rows – ${level === "beginner" ? "3x10" : level === "intermediate" ? "4x12" : "5x12"} <img src='DB_LOW.gif'></div>
+                    ${level !== "beginner" ? `<div>Bench Press – ${level === "intermediate" ? "3x10" : "4x12"} <img src='anim-dumbbell-bench-press.gif'></div>` : ""}
+                    ${level === "advanced" ? `<div>Deadlifts – 4x8 <img src='barbell-deadlift-movement.webp'></div>` : ""}
+                  </div>`;
+    } else if (bmi >= 18.5 && bmi < 24.9) { // Normal weight - Maintain
+        diet = `<div class="diet-plan">
+                    <h2>${level.charAt(0).toUpperCase() + level.slice(1)} Diet Plan</h2>
+                    <div>Breakfast: ${level === "beginner" ? "Oatmeal + banana" : level === "intermediate" ? "Eggs + whole wheat toast" : "Protein smoothie + almonds"}</div>
+                    <div>Lunch: ${level === "beginner" ? "Chicken + brown rice + veggies" : level === "intermediate" ? "Lean beef + quinoa" : "Grilled chicken + mashed potatoes"}</div>
+                    <div>Dinner: ${level === "beginner" ? "Grilled fish + sweet potato" : level === "intermediate" ? "Salmon + greens" : "Cottage cheese + nuts"}</div>
+                </div>`;
+    
+        workout = `<div class="workout-plan">
+                    <h2>${level.charAt(0).toUpperCase() + level.slice(1)} Workout Plan</h2>
+                    <div>Deadlifts – ${level === "beginner" ? "3x6" : level === "intermediate" ? "4x6" : "5x6"} <img src='barbell-deadlift-movement.webp'></div>
+                    <div>Pull-ups – ${level === "beginner" ? "3x6" : level === "intermediate" ? "3x8" : "5x10"} <img src='pull-up-647dd51506791.gif'></div>
+                    <div>Squats – ${level === "beginner" ? "3x8" : level === "intermediate" ? "4x10" : "5x12"} <img src='gym.gif'></div>
+                    ${level !== "beginner" ? `<div>Bench Press – ${level === "intermediate" ? "4x8" : "5x8"} <img src='anim-dumbbell-bench-press.gif'></div>` : ""}
+                  </div>`;
+    } else { // Overweight - Need to lose or Obese
+        diet = `<div class="diet-plan">
+                    <h2>${level.charAt(0).toUpperCase() + level.slice(1)} Diet Plan</h2>
+                    <div>Breakfast: ${level === "beginner" ? "Oats + banana" : level === "intermediate" ? "Eggs + avocado" : "Oatmeal + berries"}</div>
+                    <div>Lunch: ${level === "beginner" ? "Chicken breast + greens" : level === "intermediate" ? "Lean beef + quinoa" : "Salmon + greens"}</div>
+                    <div>Dinner: ${level === "beginner" ? "Grilled fish + avocado" : level === "intermediate" ? "Cottage cheese + nuts" : "Grilled chicken + asparagus"}</div>
+                </div>`;
+    
+        workout = `<div class="workout-plan">
+                    <h2>${level.charAt(0).toUpperCase() + level.slice(1)} Workout Plan</h2>
+                    <div>Jump Rope – ${level === "beginner" ? "2x1 min" : level === "intermediate" ? "3x2 min" : "4x2 min"} <img src='barbell-deadlift-movement.webp'></div>
+                    <div>Burpees – ${level === "beginner" ? "2x10" : level === "intermediate" ? "3x12" : "5x12"} <img src='half-burpee.gif'></div>
+                    ${level !== "beginner" ? `<div>Squats – ${level === "intermediate" ? "4x12" : "5x15"} <img src='gym.gif'></div>` : ""}
+                    ${level === "advanced" ? `<div>HIIT Workouts – 4 rounds of 30s on/30s off <img src='barbell-deadlift-movement.webp'></div>` : ""}
+                  </div>`;
     }
-
-    plan = '<h2>'+recommendation+'</h2>'+
-                '<p>'+'<b>'+'Target Weight: '+'</b>'+targetWeight.toFixed(2)+'kg'+'</p>'+
-                '<p>'+'<b>'+'Diet Plan: '+'</b>'+diet+'</p>'+
-                '<p>'+'<b>'+'Workout Plan: '+'</b>'+workout+'</p>';
-
-    document.getElementById(level + "Plan").innerHTML = plan;
+    
+    
+    document.getElementById(level + "Plan").innerHTML =
+    '<div id="recommendation"><h2>' + recommendation + '</h2></div>' +
+    '<div id="target-weight"><p><b>Target Weight: ' + targetWeight.toFixed(2) + 'kg</b></p></div>' +
+    '<p>' + diet + '</p>' +
+    '<p>' + workout + '</p>';
 }
