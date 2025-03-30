@@ -108,12 +108,19 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
     let diet = "";
     let workout = "";
     let goal = (bmi < 18.5) ? "gain" : (bmi > 24.9) ? "loss" : "maintain";
-    let minWeight=18.5*(height * height);
-    let midWeight=21.7*(height * height);
-    let maxWeight=24.9*(height * height);
-    let targetWeight = level === "beginner" ? minWeight :
+    let minWeight = 18.5 * (height * height);
+    let midWeight = 21.7 * (height * height);
+    let maxWeight = 24.9 * (height * height);
+
+    if (bmi > 24.9) { // Overweight or Obese
+        targetWeight = level === "beginner" ? maxWeight :
                        level === "intermediate" ? midWeight :
-                       maxWeight;
+                       minWeight; // Advanced loses the most weight
+    } else {
+        targetWeight = level === "beginner" ? minWeight :
+                      level === "intermediate" ? midWeight :
+                     maxWeight; // Normal or underweight cases remain unchanged
+    }
 
     let weightDiff = weight - targetWeight;
     if (weightDiff < 0) {
@@ -168,7 +175,7 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
                     <div>Jump Rope – ${level === "beginner" ? "2x1 min" : level === "intermediate" ? "3x2 min" : "4x2 min"} <img src='barbell-deadlift-movement.webp'></div>
                     <div>Burpees – ${level === "beginner" ? "2x10" : level === "intermediate" ? "3x12" : "5x12"} <img src='half-burpee.gif'></div>
                     ${level !== "beginner" ? `<div>Squats – ${level === "intermediate" ? "4x12" : "5x15"} <img src='gym.gif'></div>` : ""}
-                    ${level === "advanced" ? `<div>HIIT Workouts – 4 rounds of 30s on/30s off <img src='barbell-deadlift-movement.webp'></div>` : ""}
+                    ${level === "advanced" ? `<div>Push-ups – 3x20 <img src='weighted-push-up.gif'></div>` : ""}
                   </div>`;
     }
     
