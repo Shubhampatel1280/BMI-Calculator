@@ -1,0 +1,86 @@
+function showSection(sectionId) {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.style.display = "none");
+    document.getElementById(sectionId).style.display = "block";
+}
+function addinchesinput() {
+    let heightunit = document.getElementById('heightunit').value;
+    let inchesinput = document.getElementById('inchesinput');
+
+    if (heightunit === "ft" && !inchesinput) {
+        document.getElementById('inchesin').innerHTML += 
+            '<label id="label">'+'Inches: '+'</label>'+'<input type="number" id="inchesinput" placeholder="Inches">';
+    } else if (heightunit !== "ft" && inchesinput) {
+        inchesinput.remove();
+        label.remove();
+    }
+}
+function calculateBMI() {
+        let weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+        if (document.getElementById('heightunit').value=="select-unit" ||document.getElementById('weightunit').value=="select-unit") {
+            document.getElementById("bmiResult").innerText = "Invalid input: Please select weight and height units.";
+            return;
+        }
+        if(document.getElementById('heightunit').value=="ft"){
+            inches = document.getElementById('inchesinput').value
+            height = (height * 0.3048) + (inches * 0.0254);
+        }
+        if(document.getElementById('weightunit').value=="lbs"){
+            weight = weight * 0.453592;
+        }
+        weight = parseFloat(weight);
+        height = parseFloat(height);
+        if (weight > 0 && height > 0) {
+            let bmi = (weight / (height * height)).toFixed(2);
+            document.getElementById("bmiResult").innerText = "Your BMI: " + bmi;
+        } else {
+            document.getElementById("bmiResult").innerText = "Please enter valid values.";
+        }
+
+    // let weight = document.getElementById("weight").value;
+    // let height = document.getElementById("height").value;
+
+    // if (weight > 0 && height > 0) {
+    //     let bmi = (weight / (height * height)).toFixed(2);
+    //     document.getElementById("bmiResult").innerText = "Your BMI: " + bmi;
+    // } else {
+    //     document.getElementById("bmiResult").innerText = "Please enter valid values.";
+    // }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    showSection('home');
+});
+
+// vedant----------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("productModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPrice = document.getElementById("modalPrice");
+    const closeModal = document.querySelector(".close");
+
+    document.querySelectorAll(".view-more").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const productDiv = event.target.closest(".product");
+            const title = productDiv.querySelector("h2").innerText;
+            const price = productDiv.querySelector("p").innerText;
+
+            modalTitle.innerText = title;
+            modalPrice.innerText = price;
+
+            modal.style.display = "flex";
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+// vedant-----------------------------------------------------------------------------
