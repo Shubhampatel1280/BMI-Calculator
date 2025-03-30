@@ -40,16 +40,6 @@ function calculateBMI() {
         } else {
             document.getElementById("bmiResult").innerText = "Please enter valid values.";
         }
-
-    // let weight = document.getElementById("weight").value;
-    // let height = document.getElementById("height").value;
-
-    // if (weight > 0 && height > 0) {
-    //     let bmi = (weight / (height * height)).toFixed(2);
-    //     document.getElementById("bmiResult").innerText = "Your BMI: " + bmi;
-    // } else {
-    //     document.getElementById("bmiResult").innerText = "Please enter valid values.";
-    // }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -74,11 +64,22 @@ function showWorkout(level) {
     } else if (level === "advanced") {
         document.getElementById('advancedPlan').style.display = "block";
     }
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value);
+
+    if (document.getElementById('heightunit').value == "ft") {
+        let inches = parseFloat(document.getElementById('inchesinput').value) || 0;
+        height = (height * 0.3048) + (inches * 0.0254); // Convert to meters
+    }
+
+    if (document.getElementById('weightunit').value == "lbs") {
+        weight = weight * 0.453592; // Convert to kg
+    }
 
     // Shows the back button when clicked on plans
     document.getElementById('backButton').style.display = "block";
+    getDietAndWorkoutPlan(bmi, level, weight, height);
 }
-
 function goBack() {
     // Hide all workout plans when clicked "back"
     document.getElementById('beginnerPlan').style.display = "none";
@@ -90,4 +91,53 @@ function goBack() {
 
     // Hides the "back" button when back to plan selection page
     document.getElementById('backButton').style.display = "none";
+}
+// Shubham
+function getDietAndWorkoutPlan(bmi, level, weight, height) {
+    let plan = "";
+    let recommendation = "";
+    let diet = "";
+    let workout = "";
+    let minWeight=18.5*(height * height);
+    let midWeight=21.7*(height * height);
+    let maxWeight=24.9*(height * height);
+    let targetWeight = level === "beginner" ? minWeight :
+                       level === "intermediate" ? midWeight :
+                       maxWeight;
+
+    let weightDiff = weight - targetWeight;
+    if (weightDiff < 0) {
+        recommendation = "You need to gain " + (-weightDiff.toFixed(2)) + " kg to reach the need of your plan";
+    } else if (weightDiff > 0) {
+        recommendation = "You need to lose " + weightDiff.toFixed(2) + " kg to reach the need of your plan";
+    } else {
+        recommendation = "You are at a perfect weight!";
+    }
+    
+    if (bmi < 18.5) {
+        diet = level === "beginner" ? "High-calorie meals with rice, eggs, chicken, and dairy." :
+               level === "intermediate" ? "Increase protein intake with whey, lean meats, and nuts." :
+               "High protein, creatine, and resistance training-focused nutrition.";
+        workout = "Strength training with progressive overload and minimal cardio.";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        diet = level === "beginner" ? "Balanced diet with proteins, carbs, and healthy fats." :
+               level === "intermediate" ? "Lean proteins, complex carbs, and hydration focus." :
+               "Customized macros with calculated calorie intake and advanced supplements.";
+        workout = "Strength and endurance workouts with moderate cardio.";
+    } else if (bmi >= 25 && bmi < 29.9) {
+        diet = level === "beginner" ? "Lower carbs, high fiber, and lean proteins." :
+               level === "intermediate" ? "Include intermittent fasting and meal timing strategies." :
+               "Strict low-carb, high-protein diet with fat-burning supplements.";
+        workout = "High-intensity interval training (HIIT) and strength workouts.";
+    } else {
+        diet = "Strict calorie deficit with portion control and nutrient-dense foods.";
+        workout = "Low-impact workouts like swimming, walking, and gradual strength training.";
+    }
+
+    plan = '<h2>'+recommendation+'</h2>'+
+                '<p>'+'<b>'+'Target Weight: '+'</b>'+targetWeight.toFixed(2)+'kg'+'</p>'+
+                '<p>'+'<b>'+'Diet Plan: '+'</b>'+diet+'</p>'+
+                '<p>'+'<b>'+'Workout Plan: '+'</b>'+workout+'</p>';
+
+    document.getElementById(level + "Plan").innerHTML = plan;
 }
