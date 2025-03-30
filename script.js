@@ -185,4 +185,9 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
     '<div id="target-weight"><p><b>Target Weight: ' + targetWeight.toFixed(2) + 'kg</b></p></div>' +
     '<p>' + diet + '</p>' +
     '<p>' + workout + '</p>';
+    let productsDiv = document.getElementById("products");
+if (productsDiv) {
+    document.getElementById(level + "Plan").appendChild(productsDiv);
+    productsDiv.style.display = "block";
+}
 }
