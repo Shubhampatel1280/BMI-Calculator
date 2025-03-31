@@ -899,10 +899,10 @@ function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(100);
     doc.text('Thank you for your purchase!', 105, doc.lastAutoTable.finalY + 30, { align: 'center' });
-    doc.text('FitFuel - Premium Gym Supplements', 105, doc.lastAutoTable.finalY + 35, { align: 'center' });
+    doc.text('CoreMatrix', 105, doc.lastAutoTable.finalY + 35, { align: 'center' });
     
     // Save the PDF
-    doc.save(`FitFuel_Order_${orderId}.pdf`);
+    doc.save(`CoreMatrix_Order_${orderId}.pdf`);
 }
 }
 

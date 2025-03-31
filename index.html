@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
 </head>
 <body>
@@ -20,18 +20,62 @@
             <li><a href="#" onclick="showSection('bmi')">Check Your BMI</a></li>
         </ul>
     </nav>
-    <div id="home" class="section">
-        <h1>Welcome to Diet & Workout Suggestion System</h1>
-        <p>We provide <strong>customized diet and workout plans</strong> based on your BMI to help you achieve your fitness goals effectively.</p>
-        
-        <div class="home-content">
-            <div class="home-text">
-                <h2>Personalized for You</h2>
-                <p>Our expert-backed approach ensures that your diet and workout plans are <strong>tailored</strong> to your body type, fitness level, and health goals.</p>
-                <button onclick="showSection('bmi')" class="cta-button">Check Your BMI</button>
+    <div id="home" class="section active">
+        <div class="home-header">
+            <h1>Welcome to <span>Diet & Workout Suggestion System</span></h1>
+            <p class="tagline">Get <strong>customized diet and workout plans</strong> tailored to your BMI and fitness goals</p>
+        </div>
+    
+        <div class="home-main">
+            <div class="home-content">
+                <div class="home-text">
+                    <h2><i class="fas fa-check-circle"></i> Personalized for You</h2>
+                    <p>Our expert-backed approach ensures your diet and workout plans are perfectly matched to your:</p>
+                    <ul>
+                        <li><i class="fas fa-user"></i> Body type</li>
+                        <li><i class="fas fa-chart-line"></i> Fitness level</li>
+                        <li><i class="fas fa-bullseye"></i> Health goals</li>
+                    </ul>
+                    
+                    <div class="home-cta">
+                        <button onclick="showSection('bmi')" class="cta-button">
+                            <i class="fas fa-calculator"></i> Check Your BMI Now
+                        </button>
+                        <button onclick="showSection('products')" class="secondary-button">
+                            <i class="fas fa-shopping-bag"></i> Explore Supplements
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="home-image">
+                    <img src="Screenshot_2025-03-31_191229[1].png" alt="Fitness Illustration">
+                </div>
             </div>
-            <div class="home-image">
-                <img src="https://www.pngall.com/wp-content/uploads/8/Fitness-PNG-Free-Download.png" alt="Fitness Illustration">
+        </div>
+    
+        <div class="home-features">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Smart Diet Plans</h3>
+                <p>Nutritionally balanced meals customized to your preferences and dietary restrictions</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Effective Workouts</h3>
+                <p>Exercise routines that match your equipment availability and time constraints</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>Progress Tracking</h3>
+                <p>Monitor your improvements with our simple tracking system</p>
             </div>
         </div>
     </div>
@@ -316,16 +360,7 @@
             <span class="cart-count">0</span>
         </div>
     </header>
-
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Premium Supplements for Maximum Performance</h2>
-                <p>Shop our scientifically formulated supplements to take your training to the next level</p>
-                <a href="#products" class="btn">Shop Now</a>
-            </div>
-        </section>
-
-        <section id="products" class="products">
+        <section id="products" class="section1">
             <h2>Our Products</h2>
             <div class="product-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
@@ -333,94 +368,8 @@
                 <button class="filter-btn" data-filter="creatine">Creatine</button>
                 <button class="filter-btn" data-filter="preworkout">Pre-Workout</button>
             </div>
-            <div class="product-grid">
-                
-            </div>
+            <div class="product-grid"></div>
         </section>
-
-    <!-- Reviews Section -->
-<section class="reviews">
-    <div class="container">
-        <div class="section-title">
-            <h2>Customer Reviews</h2>
-            <p>What our customers say about our products</p>
-        </div>
-        
-        <div class="reviews-grid">
-            <!-- Review 1 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D.">
-                        <div class="reviewer-info">
-                            <h4>John D.</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-date">May 15, 2023</div>
-                </div>
-                <div class="review-body">
-                    <h5>Whey Protein Isolate</h5>
-                    <p>This is hands down the best protein powder I've ever used. Mixes easily, tastes great, and no bloating. I've noticed significant muscle gains since switching to this brand.</p>
-                </div>
-            </div>
-            
-            <!-- Review 2 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K.">
-                        <div class="reviewer-info">
-                            <h4>Sarah K.</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-date">June 2, 2023</div>
-                </div>
-                <div class="review-body">
-                    <h5>Creatine Monohydrate</h5>
-                    <p>Noticeable difference in my strength and endurance after just 2 weeks. No side effects and the powder dissolves completely in my pre-workout shake.</p>
-                </div>
-            </div>
-            
-            <!-- Review 3 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Mike T.">
-                        <div class="reviewer-info">
-                            <h4>Mike T.</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-date">April 28, 2023</div>
-                </div>
-                <div class="review-body">
-                    <h5>Pre-Workout Energizer</h5>
-                    <p>The energy boost is incredible without the jitters. I've tried many pre-workouts and this one gives me clean energy that lasts through my entire workout.</p>
-                </div>
-            </div>
-        </div>
-</section>
-
     <div class="cart-overlay">
         <div class="cart">
             <span class="close-cart"><i class="fas fa-times"></i></span>
@@ -435,14 +384,6 @@
             </div>
         </div>
     </div>
-
-    
-
-    <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CoreMatrix. All Rights Reserved.</p>
-        </div>
-    </footer>
 </div>
     
     <!-- Add this before your test2.js script -->
