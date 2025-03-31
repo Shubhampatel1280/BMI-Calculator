@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diet & Workout Suggestion System</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
@@ -35,7 +36,7 @@
         </div>
     </div>
     <!-- vedant -------------------------------------------------------------------------------------------------------------->
-    <div id="products" class="section">
+    <!-- <div id="products" class="section">
         <h1>Our Products</h1>
         <div class="product-grid">
             <div class="product">
@@ -200,7 +201,7 @@
         
         <button onclick="proceedPayment()">Proceed</button>
         <button onclick="closeCheckout()">Cancel</button>
-    </div>
+    </div> -->
 
     <div id="about" class="section">
         <h1>About Us</h1>
@@ -305,6 +306,148 @@
     
     <!-- Back Button (Initially Hidden and only appears when clicked on plans) -->
     <button id="backButton" onclick="goBack()" style="display: none;">Back</button>
+
+
+    <!-- Cristo -->
+    <div id="products" class="section">
+    <header>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Premium Supplements for Maximum Performance</h2>
+                <p>Shop our scientifically formulated supplements to take your training to the next level</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <h2>Our Products</h2>
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="protein">Protein</button>
+                <button class="filter-btn" data-filter="creatine">Creatine</button>
+                <button class="filter-btn" data-filter="preworkout">Pre-Workout</button>
+            </div>
+            <div class="product-grid">
+                
+            </div>
+        </section>
+
+    <!-- Reviews Section -->
+<section class="reviews">
+    <div class="container">
+        <div class="section-title">
+            <h2>Customer Reviews</h2>
+            <p>What our customers say about our products</p>
+        </div>
+        
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D.">
+                        <div class="reviewer-info">
+                            <h4>John D.</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-date">May 15, 2023</div>
+                </div>
+                <div class="review-body">
+                    <h5>Whey Protein Isolate</h5>
+                    <p>This is hands down the best protein powder I've ever used. Mixes easily, tastes great, and no bloating. I've noticed significant muscle gains since switching to this brand.</p>
+                </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah K.">
+                        <div class="reviewer-info">
+                            <h4>Sarah K.</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-date">June 2, 2023</div>
+                </div>
+                <div class="review-body">
+                    <h5>Creatine Monohydrate</h5>
+                    <p>Noticeable difference in my strength and endurance after just 2 weeks. No side effects and the powder dissolves completely in my pre-workout shake.</p>
+                </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Mike T.">
+                        <div class="reviewer-info">
+                            <h4>Mike T.</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-date">April 28, 2023</div>
+                </div>
+                <div class="review-body">
+                    <h5>Pre-Workout Energizer</h5>
+                    <p>The energy boost is incredible without the jitters. I've tried many pre-workouts and this one gives me clean energy that lasts through my entire workout.</p>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart"><i class="fas fa-times"></i></span>
+            <h2>Your Cart</h2>
+            <div class="cart-content">
+                <!-- Cart items will be added here -->
+            </div>
+            <div class="cart-footer">
+                <h3>Total: ₹<span class="cart-total">0</span></h3>
+                <button class="clear-cart btn">Clear Cart</button>
+                <button class="checkout btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CoreMatrix. All Rights Reserved.</p>
+        </div>
+    </footer>
+</div>
+    
+    <!-- Add this before your test2.js script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

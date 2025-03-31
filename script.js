@@ -186,87 +186,726 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
     '<p>' + diet + '</p>' +
     '<p>' + workout + '</p>';
 }
-    let productDetails = {
-        product1: { title: "Optimum Nutrition Gold Standard Whey", desc: "A blend of whey protein isolate, concentrate, and peptides, providing 24g of protein per serving to support muscle building and recovery.", price: "₹3,499", imageURL: "https://m.media-amazon.com/images/I/71gQNJJi2CL.jpg"},
-        product2: { title: "Dymatize ISO100", desc: "Hydrolyzed whey protein isolate offering 25g of protein per serving, known for rapid absorption and digestion.", price: "₹4,299",imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/dyz/dyz35321/l/25.jpg" },
-        product3: { title: "MuscleBlaze Whey Protein", desc: "Premium whey protein with 25g of protein per serving, enhanced with digestive enzymes for better absorption.", price: "₹2,999", imageURL: "https://img6.hkrtcdn.com/27834/prd_2783395-MuscleBlaze-Whey-Performance-Protein-4.4-lb-Chocolate_o.jpg"},
-        product4: { title: "Ultimate Nutrition Prostar",  desc: "Whey protein blend with 25g protein per serving, low in fat and carbohydrates for lean muscle gains.", price: "₹3,799", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxzEct8xEt4kp-KPGM6v8VFQxGSsxbTVdKBg&s"},
-        product5: { title: "Muscletech Nitro-Tech", desc: "Scientifically engineered whey protein with added creatine for superior muscle growth and strength.", price: "₹4,499", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HQIXvKLZyyQaZp-mYHqja6q4XEAwSi2aJw&s" },
-        product6: { title: "MyProtein Impact Whey", desc: "High-quality whey protein with 21g of protein per serving, known for its purity and taste.", price: "₹3,199", imageURL: "https://m.media-amazon.com/images/I/31yb+Beg6WL.jpg" },
-        product7: { title: "BSN Syntha-6", desc: "A protein matrix that delivers sustained amino acid release, ideal for post-workout recovery and nighttime use.", price: "₹3,999",  imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/bsn/bsn01110/y/8.jpg" },
-        product8: { title: "Optimum Nutrition Serious Mass", desc: "A high-calorie mass gainer with 50g protein, 250g carbs, and essential vitamins for maximum muscle gain.", price: "₹2,899", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/opn/opn02299/y/55.jpg" },
-        product9: { title: "Muscletech Mass-Tech", desc: "An advanced mass gainer with multi-phase protein, complex carbs, and creatine for optimal muscle building.", price: "₹4,099", imageURL: "https://m.media-amazon.com/images/I/61hA0OnsLKL.jpg" },
-        product10: { title: "Ronnie Coleman Whey", desc: "High-quality whey protein with BCAAs for enhanced muscle recovery and growth.", price: "₹3,899", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRcGsafrdHl9eUKNq92Mgjt34CT6CcKEYIZA&s" },
-        product11: { title: "MusclePharm Combat", desc: "A blend of 5 different protein sources ensuring a sustained release of amino acids for muscle recovery.", price: "₹3,599", imageURL: "https://musclepharm.com/cdn/shop/files/MP_4lbCombat_Horchata_Frontcopy.png?v=1707501734&width=2000" },
-        product12: { title: "Evlution Nutrition Stacked Protein", desc: "Multi-stage protein blend with whey isolate, casein, and egg protein for muscle growth and recovery.", price: "₹3,999", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/evl/evl02339/l/8.jpg" },
-        product13: { title: "Rule 1 Whey", desc: "Ultra-pure whey isolate with no fillers, providing 25g of protein per serving.", price: "₹4,199", imageURL: "https://fitbasket.in/wp-content/uploads/2019/05/Rule1whey5lbchoc-1-1.jpg"},
-        product14: { title: "IsoPure Zero Carb", desc: "Zero-carb, pure whey protein isolate, perfect for low-carb diets and lean muscle maintenance.", price: "₹4,299", imageURL: "https://apexsupplements.in/cdn/shop/files/Isopure-Zero-Carb-Whey-Protein-Isolate-unflavoured_3995a2a7-9ef8-4de5-9db6-9929690805cc.jpg?v=1729931003&width=1946" },
-        product15: { title: "Mutant Mass", desc: "An extreme mass gainer packed with calories, protein, and essential nutrients for serious weight gainers.", price: "₹3,999", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXPlcBl5neFHSRitxF7Dzg0-wo-Z9N7UPKg&s" },
-        product16: { title: "Optimum Nutrition Casein", desc: "Slow-digesting casein protein providing a sustained release of amino acids, ideal for nighttime recovery.", price: "₹4,499", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/opn/opn02419/y/24.jpg" },
-        product17: { title: "Xtend BCAA", desc: "A performance-enhancing BCAA formula that supports muscle recovery, endurance, and hydration.", price: "₹2,799", imageURL: "https://m.media-amazon.com/images/I/71jYB0vgo3L.jpg" },
-        product18: { title: "BSN True Mass", desc: "A calorie-dense mass gainer with a blend of proteins, complex carbs, and healthy fats for maximum muscle gains.", price: "₹4,099", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/bsn/bsn00655/l/42.jpg" }
+
+// Cristo
+// DOM Elements
+const cartIcon = document.querySelector('.cart-icon');
+const cartOverlay = document.querySelector('.cart-overlay');
+const closeCart = document.querySelector('.close-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
+const cartContent = document.querySelector('.cart-content');
+const cartTotal = document.querySelector('.cart-total');
+const cartCount = document.querySelector('.cart-count');
+const productGrid = document.querySelector('.product-grid');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+// Cart
+let cart = [];
+
+// Product Data
+const products = [
+    {
+        id: 1,
+        name: "MuscleBlaze Biozyme Performance Whey, 2 kg (4.4 lb), Rich Chocolate",
+        price: 5299,
+        category: "protein",
+        img: "https://img8.hkrtcdn.com/39078/prd_3907787-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg",
+        desc: "India's 1st clinically proven whey protein: Biozyme Performance whey is proven for superior absorption and enhanced muscle-building efficacy."
+    },
+    {
+        id: 2,
+        name: "Creatine Monohydrate",
+        price: 24.99,
+        category: "creatine",
+        img: "https://img4.hkrtcdn.com/28512/prd_2851103-MuscleBlaze-CreaPRO-Creatine-with-Creapure-Powder-from-Germany-0.55-lb-Fruit-Punch_o.jpg",
+        desc: "Clinically proven to increase strength and power output."
+    },
+    {
+        id: 3,
+        name: "Pre-Workout Energizer",
+        price: 29.99,
+        category: "preworkout",
+        img: "https://img4.hkrtcdn.com/35591/prd_3559003-MuscleBlaze-Pre-Workout-WrathX-0.74-lb-Fruit-Fury_o.jpg",
+        desc: "Powerful formula to boost energy, focus and endurance."
+    },
+    {
+        id: 4,
+        name: "MuscleBlaze Biozyme Gold 100% Whey, 2 kg (4.4 lb), Double Rich Chocolate",
+        price: 6599,
+        category: "protein",
+        img: "https://img2.hkrtcdn.com/36006/prd_3600571-MuscleBlaze-Biozyme-Gold-100-Whey-4.4-lb-Double-Rich-Chocolate_o.jpg",
+        desc: "Whey Isolate as primary source: Biozyme Gold's premium protein blend of Isolate & Concentrate contains Whey Isolate as its primary source, providing you with 26g of high-quality protein in every scoop."
+    },
+    {
+        id: 5,
+        name: "Creatine HCL",
+        price: 34.99,
+        category: "creatine",
+        img: "https://m.media-amazon.com/images/I/71wLbVnsgSL.jpg",
+        desc: "Advanced creatine formula with enhanced absorption."
+    },
+    {
+        id: 6,
+        name: "Nitric Oxide Booster",
+        price: 27.99,
+        category: "preworkout",
+        img: "https://img4.hkrtcdn.com/37799/prd_3779883-MuscleBlaze-PRE-Workout-200-Xtreme-0.22-lb-Fruit-Punch_o.jpg",
+        desc: "Promotes vasodilation for insane pumps and endurance."
+    },
+    {
+        id: 7,
+        name: "MuscleBlaze Biozyme Whey PR, 2 kg (4.4 lb), Molten Chocolate Cake",
+        price: 5299,
+        category: "protein",
+        img: "https://img2.hkrtcdn.com/34808/prd_3480711-MuscleBlaze-Biozyme-Whey-PR-4.4-lb-Molten-Chocolate-Cake_o.jpg",
+        desc: "Unleash the power of AstraGin: Each scoop of MB Biozyme Whey PR has 50mg of patented AstraGin®, a revolutionary gut health and immunity booster that optimizes nutrient absorption in your body."
+    },
+    {
+        id: 8,
+        name: "Creatine Complex",
+        price: 31.99,
+        category: "creatine",
+        img: "https://img6.hkrtcdn.com/38194/prd_3819395-MuscleBlaze-Creatine-Monohydrate-CreAMP-Juicy-Berries-0.61-lb_o.jpg",
+        desc: "Multi-phase creatine for sustained performance enhancement."
+    },
+    {
+        id: 9,
+        name: "Nitric Oxide Booster",
+        price: 27.99,
+        category: "preworkout",
+        img: "https://img6.hkrtcdn.com/37463/prd_3746225-MuscleBlaze-Pre-Workout-Ripped-0.55-lb-Fruit-Splash_o.jpg",
+        desc: "Promotes vasodilation for insane pumps and endurance."
+    },
+    {
+        id: 10,
+        name: "MuscleBlaze Biozyme Performance Whey, 2 kg (4.4 lb), Rich Chocolate",
+        price: 5299,
+        category: "protein",
+        img: "https://img8.hkrtcdn.com/39078/prd_3907787-MuscleBlaze-Biozyme-Performance-Whey-4.4-lb-Rich-Chocolate_o.jpg",
+        desc: "India's 1st clinically proven whey protein: Biozyme Performance whey is proven for superior absorption and enhanced muscle-building efficacy."
+    },
+    {
+        id: 11,
+        name: "Creatine Monohydrate",
+        price: 24.99,
+        category: "creatine",
+        img: "https://img4.hkrtcdn.com/28512/prd_2851103-MuscleBlaze-CreaPRO-Creatine-with-Creapure-Powder-from-Germany-0.55-lb-Fruit-Punch_o.jpg",
+        desc: "Clinically proven to increase strength and power output."
+    },
+    {
+        id: 12,
+        name: "Pre-Workout Energizer",
+        price: 29.99,
+        category: "preworkout",
+        img: "https://img4.hkrtcdn.com/35591/prd_3559003-MuscleBlaze-Pre-Workout-WrathX-0.74-lb-Fruit-Fury_o.jpg",
+        desc: "Powerful formula to boost energy, focus and endurance."
+    }
+];
+
+// Display Products
+function displayProducts(filter = 'all') {
+    productGrid.innerHTML = '';
+    
+    const filteredProducts = filter === 'all' 
+        ? products 
+        : products.filter(product => product.category === filter);
+    
+    filteredProducts.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product-card');
+        productElement.dataset.id = product.id;
+        productElement.innerHTML = `
+            <div class="product-img">
+                <img src="${product.img}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.desc}</p>
+                <div class="product-price">
+                    <span>₹${product.price.toFixed(2)}</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        productGrid.appendChild(productElement);
+    });
+    
+    // Add event listeners to "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', addToCart);
+    });
+}
+
+// Add to Cart
+function addToCart(e) {
+    const productId = parseInt(e.target.closest('.product-card').dataset.id);
+    const product = products.find(item => item.id === productId);
+    
+    // Check if product already in cart
+    const existingItem = cart.find(item => item.id === productId);
+    
+    if (existingItem) {
+        existingItem.amount += 1;
+    } else {
+        cart.push({...product, amount: 1});
+    }
+    
+    updateCart();
+    showCartNotification();
+}
+
+// Show cart notification
+function showCartNotification() {
+    cartIcon.classList.add('animate');
+    setTimeout(() => {
+        cartIcon.classList.remove('animate');
+    }, 500);
+}
+
+// Update Cart
+function updateCart() {
+    // Update cart count
+    const totalItems = cart.reduce((total, item) => total + item.amount, 0);
+    cartCount.textContent = totalItems;
+    
+    // Update cart content
+    cartContent.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartContent.innerHTML = '<p>Your cart is empty</p>';
+        cartTotal.textContent = '0.00';
+    } else {
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="${item.img}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <p>₹${item.price.toFixed(2)}</p>
+                    <div class="cart-item-amount">
+                        <i class="fas fa-chevron-down decrease"></i>
+                        <span>${item.amount}</span>
+                        <i class="fas fa-chevron-up increase"></i>
+                    </div>
+                </div>
+                <i class="fas fa-trash cart-item-remove"></i>
+            `;
+            cartContent.appendChild(cartItem);
+        });
+        
+        // Calculate total
+        const total = cart.reduce((sum, item) => sum + (item.price * item.amount), 0);
+        cartTotal.textContent = total.toFixed(2);
+        
+        // Add event listeners to cart items
+        document.querySelectorAll('.decrease').forEach(btn => {
+            btn.addEventListener('click', decreaseAmount);
+        });
+        
+        document.querySelectorAll('.increase').forEach(btn => {
+            btn.addEventListener('click', increaseAmount);
+        });
+        
+        document.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.addEventListener('click', removeItem);
+        });
+    }
+}
+
+// Decrease item amount
+function decreaseAmount(e) {
+    const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
+    const cartItem = cart.find(item => item.name === productName);
+    
+    if (cartItem.amount > 1) {
+        cartItem.amount -= 1;
+    } else {
+        cart = cart.filter(item => item.name !== productName);
+    }
+    
+    updateCart();
+}
+
+// Increase item amount
+function increaseAmount(e) {
+    const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
+    const cartItem = cart.find(item => item.name === productName);
+    cartItem.amount += 1;
+    updateCart();
+}
+
+// Remove item
+function removeItem(e) {
+    const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
+    cart = cart.filter(item => item.name !== productName);
+    updateCart();
+}
+
+// Clear cart
+function clearCart() {
+    cart = [];
+    updateCart();
+}
+
+// Filter products
+function filterProducts(e) {
+    const filter = e.target.dataset.filter;
+    
+    // Update active button
+    filterBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.filter === filter) {
+            btn.classList.add('active');
+        }
+    });
+    
+    displayProducts(filter);
+}
+
+// Initialize
+function init() {
+    // Display all products initially
+    displayProducts();
+    
+    // Cart event listeners
+    cartIcon.addEventListener('click', () => {
+        cartOverlay.classList.add('show');
+    });
+    
+    closeCart.addEventListener('click', () => {
+        cartOverlay.classList.remove('show');
+    });
+    
+    clearCartBtn.addEventListener('click', clearCart);
+    
+    // Filter buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', filterProducts);
+    });
+    
+    // Checkout button
+    // document.querySelector('.checkout').addEventListener('click', () => {
+    //     if (cart.length > 0) {
+    //         alert('Thank you for your purchase!');
+    //         clearCart();
+    //         cartOverlay.classList.remove('show');
+    //     } else {
+    //         alert('Your cart is empty!');
+    //     }
+    // });
+    // ... (previous code remains the same)
+
+// Create checkout payment modal
+const checkoutModal = document.createElement('div');
+checkoutModal.classList.add('checkout-modal');
+document.body.appendChild(checkoutModal);
+
+// Modify the checkout button event listener
+document.querySelector('.checkout').addEventListener('click', () => {
+    if (cart.length > 0) {
+        showCheckoutModal();
+    } else {
+        alert('Your cart is empty!');
+    }
+});
+
+// ... (previous code remains the same until showCheckoutModal function)
+
+function showCheckoutModal() {
+    checkoutModal.innerHTML = `
+        <div class="checkout-content">
+            <span class="close-checkout">&times;</span>
+            <h2>Checkout</h2>
+            
+            <div class="checkout-steps">
+                <div class="step active" data-step="shipping">1. Shipping</div>
+                <div class="step" data-step="payment">2. Payment</div>
+            </div>
+            
+            <form class="shipping-form active">
+                <h3>Shipping Information</h3>
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-number">Contact Number</label>
+                    <input type="tel" id="contact-number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Street Address</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pincode">PIN Code</label>
+                        <input type="text" id="pincode" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" value="India" readonly>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary close-checkout">Cancel</button>
+                    <button type="button" class="btn btn-primary proceed-to-payment">Proceed to Payment</button>
+                </div>
+            </form>
+            
+            <div class="payment-form">
+                <h3>Payment Method</h3>
+                <div class="payment-options-container">
+                    <div class="payment-option">
+                        <input type="radio" id="credit-card" name="payment" value="credit" checked>
+                        <label for="credit-card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Credit Card</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="debit-card" name="payment" value="debit">
+                        <label for="debit-card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Debit Card</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="upi" name="payment" value="upi">
+                        <label for="upi">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>UPI Payment</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="cod" name="payment" value="cod">
+                        <label for="cod">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Cash on Delivery</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="netbanking" name="payment" value="netbanking">
+                        <label for="netbanking">
+                            <i class="fas fa-university"></i>
+                            <span>Net Banking</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="checkout-summary">
+                    <h4>Order Summary</h4>
+                    <div class="summary-items">
+                        ${cart.map(item => `
+                            <div class="summary-item">
+                                <span>${item.name} (${item.amount}x)</span>
+                                <span>₹${(item.price * item.amount).toFixed(2)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span>₹${cart.reduce((sum, item) => sum + (item.price * item.amount), 0).toFixed(2)}</span>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary back-to-shipping">Back</button>
+                    <button type="button" class="btn btn-primary confirm-payment">Confirm Payment</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    checkoutModal.classList.add('show');
+
+    // Close modal
+    checkoutModal.querySelector('.close-checkout').addEventListener('click', () => {
+        checkoutModal.classList.remove('show');
+    });
+
+    // Proceed to payment
+    checkoutModal.querySelector('.proceed-to-payment').addEventListener('click', () => {
+        const shippingForm = checkoutModal.querySelector('.shipping-form');
+        const paymentForm = checkoutModal.querySelector('.payment-form');
+        const shippingStep = checkoutModal.querySelector('.step[data-step="shipping"]');
+        const paymentStep = checkoutModal.querySelector('.step[data-step="payment"]');
+        
+        // Validate form
+        let isValid = true;
+        shippingForm.querySelectorAll('[required]').forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                isValid = false;
+            } else {
+                input.classList.remove('error');
+            }
+        });
+        
+        if (isValid) {
+            shippingForm.classList.remove('active');
+            paymentForm.classList.add('active');
+            shippingStep.classList.remove('active');
+            paymentStep.classList.add('active');
+        } else {
+            alert('Please fill all required fields');
+        }
+    });
+
+    // Back to shipping
+    checkoutModal.querySelector('.back-to-shipping').addEventListener('click', () => {
+        const shippingForm = checkoutModal.querySelector('.shipping-form');
+        const paymentForm = checkoutModal.querySelector('.payment-form');
+        const shippingStep = checkoutModal.querySelector('.step[data-step="shipping"]');
+        const paymentStep = checkoutModal.querySelector('.step[data-step="payment"]');
+        
+        shippingForm.classList.add('active');
+        paymentForm.classList.remove('active');
+        shippingStep.classList.add('active');
+        paymentStep.classList.remove('active');
+    });
+
+    // Confirm payment
+    checkoutModal.querySelector('.confirm-payment').addEventListener('click', () => {
+        const paymentMethod = checkoutModal.querySelector('input[name="payment"]:checked').value;
+        completePurchase(paymentMethod);
+    });
+}
+
+function completePurchase(paymentMethod) {
+    // Get shipping info
+    const shippingInfo = {
+        name: document.getElementById('full-name').value,
+        contact: document.getElementById('contact-number').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
+        state: document.getElementById('state').value,
+        pincode: document.getElementById('pincode').value,
+        country: document.getElementById('country').value
     };
 
-let currentProductId = '';
-
-function viewMore(productId) {
-    console.log("viewMore called with:", productId);
-    currentProductId = productId;
-    const product = productDetails[productId];
-    if (product) {
-        console.log("Product found:", product);
-        document.getElementById('detailsTitle').innerText = product.title;
-        document.getElementById('detailsImage').src = product.imageURL; // Fixed issue
-        document.getElementById('detailsDesc').innerText = product.desc;
-        document.getElementById('detailsPrice').innerText = product.price;
-        document.getElementById('productQuantity').value = 1;
-        document.getElementById('productDetails').style.display = "block";
-    } else {
-        console.error("Product not found for ID:", productId);
-    }
-}
-
-function closeDetails() {
-    document.getElementById('productDetails').style.display = "none";
-}
-
-function changeQuantity(amount) {
-    const quantityInput = document.getElementById('productQuantity');
-    let currentQuantity = parseInt(quantityInput.value);
-    if (!isNaN(currentQuantity)) {
-        currentQuantity += amount;
-        if (currentQuantity < 1) currentQuantity = 1;
-        quantityInput.value = currentQuantity;
-    }
-}
-
-function buyNow() {
-    const quantity = document.getElementById('productQuantity').value;
-    const product = productDetails[currentProductId];
-
-    if (product) {
-        document.getElementById('checkoutProductName').innerText = product.title;
-        document.getElementById('checkoutQuantity').innerText = quantity;
-        document.getElementById('checkoutModal').style.display = "block";
-    }
-}
-
-function closeCheckout() {
-    document.getElementById('checkoutModal').style.display = "none";
-}
-
-function proceedPayment() {
-    const name = document.getElementById('userName').value;
-    const phone = document.getElementById('userPhone').value;
-    const address = document.getElementById('userAddress').value;
-    const paymentMethod = document.getElementById('paymentMethod').value;
+    // Here you would typically send the order to your backend
+    // For this demo, we'll just show a confirmation
     
-    if (name && phone && address && paymentMethod) {
-        alert(`Order placed successfully!\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nPayment: ${paymentMethod}`);
-        
-        // Redirect to a confirmation page or handle order processing
-        window.location.href = `/confirm-order?product=${currentProductId}&quantity=${document.getElementById('productQuantity').value}&name=${encodeURIComponent(name)}&phone=${phone}&address=${encodeURIComponent(address)}&payment=${paymentMethod}`;
-    } else {
-        alert("Please fill in all details.");
-    }
+    checkoutModal.innerHTML = `
+        <div class="checkout-content">
+            <div class="payment-success">
+                <i class="fas fa-check-circle"></i>
+                <h2>Order Confirmed!</h2>
+                <div class="order-details">
+                    <h4>Order Details</h4>
+                    <p><strong>Order ID:</strong> ${'ORD' + Math.floor(Math.random() * 1000000)}</p>
+                    <p><strong>Payment Method:</strong> ${getPaymentMethodName(paymentMethod)}</p>
+                    <p><strong>Total Amount:</strong> ₹${cart.reduce((sum, item) => sum + (item.price * item.amount), 0).toFixed(2)}</p>
+                    
+                </div>
+                <p>A confirmation has been sent to your email.</p>
+                <button class="return-to-shop">Return to Shop</button>
+            </div>
+        </div>
+    `;
+
+    checkoutModal.querySelector('.return-to-shop').addEventListener('click', () => {
+        checkoutModal.classList.remove('show');
+        cartOverlay.classList.remove('show');
+        cart = [];
+        updateCart();
+    });
 }
+
+function getPaymentMethodName(method) {
+    const methods = {
+        'credit': 'Credit Card',
+        'debit': 'Debit Card',
+        'upi': 'UPI Payment',
+        'cod': 'Cash on Delivery',
+        'netbanking': 'Net Banking'
+    };
+    return methods[method] || method;
+}
+function completePurchase(paymentMethod) {
+    // Get shipping info
+    const shippingInfo = {
+        name: document.getElementById('full-name').value,
+        contact: document.getElementById('contact-number').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
+        state: document.getElementById('state').value,
+        pincode: document.getElementById('pincode').value,
+        country: document.getElementById('country').value
+    };
+
+    // Generate order ID
+    const orderId = 'ORD' + Math.floor(Math.random() * 1000000);
+    const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.amount), 0).toFixed(2);
+    const orderDate = new Date().toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+    });
+
+    checkoutModal.innerHTML = `
+        <div class="checkout-content">
+            <div class="payment-success">
+                <i class="fas fa-check-circle"></i>
+                <h2>Order Confirmed!</h2>
+                <div class="order-details">
+                    <h4>Order Details</h4>
+                    <p><strong>Order ID:</strong> ${orderId}</p>
+                    <p><strong>Date:</strong> ${orderDate}</p>
+                    <p><strong>Payment Method:</strong> ${getPaymentMethodName(paymentMethod)}</p>
+                    <p><strong>Total Amount:</strong> ₹${orderTotal}</p>
+                </div>
+                
+                <div class="order-items">
+                    <h4>Order Items</h4>
+                    <table class="order-items-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${cart.map(item => `
+                                <tr>
+                                    <td>${item.name}</td>
+                                    <td>${item.amount}</td>
+                                    <td>₹${item.price.toFixed(2)}</td>
+                                    <td>₹${(item.price * item.amount).toFixed(2)}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <button class="download-bill">Download Bill (PDF)</button>
+                    <button class="return-to-shop">Return to Shop</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Add event listener for PDF download
+    checkoutModal.querySelector('.download-bill').addEventListener('click', () => {
+        generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal);
+    });
+
+    checkoutModal.querySelector('.return-to-shop').addEventListener('click', () => {
+        checkoutModal.classList.remove('show');
+        cartOverlay.classList.remove('show');
+        cart = [];
+        updateCart();
+    });
+}
+
+function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal) {
+    // Create new PDF document
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    // Add logo and header
+    doc.setFontSize(20);
+    doc.setTextColor(40);
+    doc.setFont('helvetica', 'bold');
+    doc.text('FitFuel', 105, 20, { align: 'center' });
+    doc.setFontSize(12);
+    doc.setTextColor(100);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Premium Gym Supplements', 105, 27, { align: 'center' });
+    
+    // Add order info
+    doc.setFontSize(14);
+    doc.setTextColor(40);
+    doc.text(`Order #${orderId}`, 14, 40);
+    doc.setFontSize(10);
+    doc.text(`Date: ${orderDate}`, 14, 47);
+    doc.text(`Payment Method: ${getPaymentMethodName(paymentMethod)}`, 14, 54);
+    
+    // Add shipping info
+    doc.text(`Shipping To:`, 14, 64);
+    doc.text(`${shippingInfo.name}`, 14, 71);
+    doc.text(`${shippingInfo.address}`, 14, 78);
+    doc.text(`${shippingInfo.city}, ${shippingInfo.state} - ${shippingInfo.pincode}`, 14, 85);
+    doc.text(`${shippingInfo.country}`, 14, 92);
+    doc.text(`Contact: ${shippingInfo.contact}`, 14, 99);
+    doc.text(`Email: ${shippingInfo.email}`, 14, 106);
+    
+    // Add order items table
+    doc.autoTable({
+        startY: 120,
+        head: [['Item', 'Qty', 'Price', 'Total']],
+        body: cart.map(item => [
+            item.name,
+            item.amount,
+            `₹${item.price.toFixed(2)}`,
+            `₹${(item.price * item.amount).toFixed(2)}`
+        ]),
+        headStyles: {
+            fillColor: [255, 107, 107],
+            textColor: [255, 255, 255],
+            fontStyle: 'bold'
+        },
+        alternateRowStyles: {
+            fillColor: [245, 245, 245]
+        },
+        styles: {
+            cellPadding: 5,
+            fontSize: 10,
+            valign: 'middle'
+        },
+        columnStyles: {
+            0: { cellWidth: 'auto' },
+            1: { cellWidth: 20 },
+            2: { cellWidth: 30 },
+            3: { cellWidth: 30 }
+        }
+    });
+    
+    // Add total
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Total: ₹${orderTotal}`, 160, doc.lastAutoTable.finalY + 20);
+    
+    // Add footer
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(100);
+    doc.text('Thank you for your purchase!', 105, doc.lastAutoTable.finalY + 30, { align: 'center' });
+    doc.text('FitFuel - Premium Gym Supplements', 105, doc.lastAutoTable.finalY + 35, { align: 'center' });
+    
+    // Save the PDF
+    doc.save(`FitFuel_Order_${orderId}.pdf`);
+}
+}
+
+
+// Run initialization
+init();
