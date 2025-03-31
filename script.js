@@ -186,3 +186,87 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
     '<p>' + diet + '</p>' +
     '<p>' + workout + '</p>';
 }
+    let productDetails = {
+        product1: { title: "Optimum Nutrition Gold Standard Whey", desc: "A blend of whey protein isolate, concentrate, and peptides, providing 24g of protein per serving to support muscle building and recovery.", price: "₹3,499", imageURL: "https://m.media-amazon.com/images/I/71gQNJJi2CL.jpg"},
+        product2: { title: "Dymatize ISO100", desc: "Hydrolyzed whey protein isolate offering 25g of protein per serving, known for rapid absorption and digestion.", price: "₹4,299",imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/dyz/dyz35321/l/25.jpg" },
+        product3: { title: "MuscleBlaze Whey Protein", desc: "Premium whey protein with 25g of protein per serving, enhanced with digestive enzymes for better absorption.", price: "₹2,999", imageURL: "https://img6.hkrtcdn.com/27834/prd_2783395-MuscleBlaze-Whey-Performance-Protein-4.4-lb-Chocolate_o.jpg"},
+        product4: { title: "Ultimate Nutrition Prostar",  desc: "Whey protein blend with 25g protein per serving, low in fat and carbohydrates for lean muscle gains.", price: "₹3,799", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxzEct8xEt4kp-KPGM6v8VFQxGSsxbTVdKBg&s"},
+        product5: { title: "Muscletech Nitro-Tech", desc: "Scientifically engineered whey protein with added creatine for superior muscle growth and strength.", price: "₹4,499", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HQIXvKLZyyQaZp-mYHqja6q4XEAwSi2aJw&s" },
+        product6: { title: "MyProtein Impact Whey", desc: "High-quality whey protein with 21g of protein per serving, known for its purity and taste.", price: "₹3,199", imageURL: "https://m.media-amazon.com/images/I/31yb+Beg6WL.jpg" },
+        product7: { title: "BSN Syntha-6", desc: "A protein matrix that delivers sustained amino acid release, ideal for post-workout recovery and nighttime use.", price: "₹3,999",  imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/bsn/bsn01110/y/8.jpg" },
+        product8: { title: "Optimum Nutrition Serious Mass", desc: "A high-calorie mass gainer with 50g protein, 250g carbs, and essential vitamins for maximum muscle gain.", price: "₹2,899", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/opn/opn02299/y/55.jpg" },
+        product9: { title: "Muscletech Mass-Tech", desc: "An advanced mass gainer with multi-phase protein, complex carbs, and creatine for optimal muscle building.", price: "₹4,099", imageURL: "https://m.media-amazon.com/images/I/61hA0OnsLKL.jpg" },
+        product10: { title: "Ronnie Coleman Whey", desc: "High-quality whey protein with BCAAs for enhanced muscle recovery and growth.", price: "₹3,899", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRcGsafrdHl9eUKNq92Mgjt34CT6CcKEYIZA&s" },
+        product11: { title: "MusclePharm Combat", desc: "A blend of 5 different protein sources ensuring a sustained release of amino acids for muscle recovery.", price: "₹3,599", imageURL: "https://musclepharm.com/cdn/shop/files/MP_4lbCombat_Horchata_Frontcopy.png?v=1707501734&width=2000" },
+        product12: { title: "Evlution Nutrition Stacked Protein", desc: "Multi-stage protein blend with whey isolate, casein, and egg protein for muscle growth and recovery.", price: "₹3,999", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/evl/evl02339/l/8.jpg" },
+        product13: { title: "Rule 1 Whey", desc: "Ultra-pure whey isolate with no fillers, providing 25g of protein per serving.", price: "₹4,199", imageURL: "https://fitbasket.in/wp-content/uploads/2019/05/Rule1whey5lbchoc-1-1.jpg"},
+        product14: { title: "IsoPure Zero Carb", desc: "Zero-carb, pure whey protein isolate, perfect for low-carb diets and lean muscle maintenance.", price: "₹4,299", imageURL: "https://apexsupplements.in/cdn/shop/files/Isopure-Zero-Carb-Whey-Protein-Isolate-unflavoured_3995a2a7-9ef8-4de5-9db6-9929690805cc.jpg?v=1729931003&width=1946" },
+        product15: { title: "Mutant Mass", desc: "An extreme mass gainer packed with calories, protein, and essential nutrients for serious weight gainers.", price: "₹3,999", imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXPlcBl5neFHSRitxF7Dzg0-wo-Z9N7UPKg&s" },
+        product16: { title: "Optimum Nutrition Casein", desc: "Slow-digesting casein protein providing a sustained release of amino acids, ideal for nighttime recovery.", price: "₹4,499", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/opn/opn02419/y/24.jpg" },
+        product17: { title: "Xtend BCAA", desc: "A performance-enhancing BCAA formula that supports muscle recovery, endurance, and hydration.", price: "₹2,799", imageURL: "https://m.media-amazon.com/images/I/71jYB0vgo3L.jpg" },
+        product18: { title: "BSN True Mass", desc: "A calorie-dense mass gainer with a blend of proteins, complex carbs, and healthy fats for maximum muscle gains.", price: "₹4,099", imageURL: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/bsn/bsn00655/l/42.jpg" }
+    };
+
+let currentProductId = '';
+
+function viewMore(productId) {
+    console.log("viewMore called with:", productId);
+    currentProductId = productId;
+    const product = productDetails[productId];
+    if (product) {
+        console.log("Product found:", product);
+        document.getElementById('detailsTitle').innerText = product.title;
+        document.getElementById('detailsImage').src = product.imageURL; // Fixed issue
+        document.getElementById('detailsDesc').innerText = product.desc;
+        document.getElementById('detailsPrice').innerText = product.price;
+        document.getElementById('productQuantity').value = 1;
+        document.getElementById('productDetails').style.display = "block";
+    } else {
+        console.error("Product not found for ID:", productId);
+    }
+}
+
+function closeDetails() {
+    document.getElementById('productDetails').style.display = "none";
+}
+
+function changeQuantity(amount) {
+    const quantityInput = document.getElementById('productQuantity');
+    let currentQuantity = parseInt(quantityInput.value);
+    if (!isNaN(currentQuantity)) {
+        currentQuantity += amount;
+        if (currentQuantity < 1) currentQuantity = 1;
+        quantityInput.value = currentQuantity;
+    }
+}
+
+function buyNow() {
+    const quantity = document.getElementById('productQuantity').value;
+    const product = productDetails[currentProductId];
+
+    if (product) {
+        document.getElementById('checkoutProductName').innerText = product.title;
+        document.getElementById('checkoutQuantity').innerText = quantity;
+        document.getElementById('checkoutModal').style.display = "block";
+    }
+}
+
+function closeCheckout() {
+    document.getElementById('checkoutModal').style.display = "none";
+}
+
+function proceedPayment() {
+    const name = document.getElementById('userName').value;
+    const phone = document.getElementById('userPhone').value;
+    const address = document.getElementById('userAddress').value;
+    const paymentMethod = document.getElementById('paymentMethod').value;
+    
+    if (name && phone && address && paymentMethod) {
+        alert(`Order placed successfully!\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nPayment: ${paymentMethod}`);
+        
+        // Redirect to a confirmation page or handle order processing
+        window.location.href = `/confirm-order?product=${currentProductId}&quantity=${document.getElementById('productQuantity').value}&name=${encodeURIComponent(name)}&phone=${phone}&address=${encodeURIComponent(address)}&payment=${paymentMethod}`;
+    } else {
+        alert("Please fill in all details.");
+    }
+}

@@ -60,6 +60,35 @@ button {
     cursor: pointer;
     transition: background 0.3s;
 }
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.home-text {
+    max-width: 50%;
+}
+
+.home-image img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.cta-button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+}
 
 button:hover {
     background-color: #e6b800;
@@ -497,4 +526,47 @@ img {
     font-size: 20px;
     cursor: pointer;
 }
-
+#productDetails {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+#detailsImage {
+    width: 300px; /* Adjust as needed */
+    height: auto;
+    max-width: 100%;
+}
+#productQuantity {
+    width: 60px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    font-size: 14px; /* Adjust text size */
+    padding: 5px;
+}
+#checkoutModal {
+    width: 90%; /* Adjust width for mobile screens */
+    max-width: 500px; /* Prevents excessive width */
+    height: auto;
+    max-height: 90vh; /* Prevents overflow */
+    overflow-y: auto; /* Enables scrolling if content is too long */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+input, textarea, select {
+    width: 80%; /* Make inputs stretch properly */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
