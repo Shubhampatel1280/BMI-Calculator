@@ -63,33 +63,27 @@
         <p id="bmiResult"></p>
     </div>
 <!-- Tejas -->
-    <div id="workoutPlan" class="section" style="display: none;">
-        <h1>Select Your Workout Plan</h1>
-        <button onclick="showWorkout('beginner')">Beginner</button>
-        <button onclick="showWorkout('intermediate')">Intermediate</button>
-        <button onclick="showWorkout('advanced')">Advanced</button>
+<!-- Workout Plan Section -->
+<div id="workoutPlan" class="workout-sections">
+    <!-- Beginner Option -->
+    <div id="beginnerSection" class="section-with-background" onclick="showWorkout('beginner')">
+        <h1>Beginner Plan</h1>
+        <p>Basic diet and workout suggestions for beginners.</p>
     </div>
-    
-    <!-- Workout Plans (This section is initially hidden since we are doing everything on a single page) -->
-    <div id="beginnerPlan" class="section" style="display: none;">
-        <h1>Beginner Workout & Diet Plan</h1>
-        <p>Basic diet and workout suggestions will go here.</p>
+    <!-- Intermediate Option -->
+    <div id="intermediateSection" class="section-with-background" onclick="showWorkout('intermediate')">
+        <h1>Intermediate Plan</h1>
+        <p>Structured diet and workout suggestions for intermediates.</p>
     </div>
-    
-    <div id="intermediatePlan" class="section" style="display: none;">
-        <h1>Intermediate Workout & Diet Plan</h1>
-        <p>More structured diet and workout suggestions will go here.</p>
+    <!-- Advanced Option -->
+    <div id="advancedSection" class="section-with-background" onclick="showWorkout('advanced')">
+        <h1>Advanced Plan</h1>
+        <p>Intensive diet and workout strategies for advanced users.</p>
     </div>
-    
-    <div id="advancedPlan" class="section" style="display: none;">
-        <h1>Advanced Workout & Diet Plan</h1>
-        <p>Intensive diet and workout strategies will go here.</p>
-    </div>
-    
-    <!-- Back Button (Initially Hidden and only appears when clicked on plans) -->
-    <button id="backButton" onclick="goBack()" style="display: none;">Back</button>
-    
-    
+</div>
+
+<div id="selectedWorkoutPlan" style="display: none;"></div>
+
     <script src="script.js"></script>
 </body>
 </html>

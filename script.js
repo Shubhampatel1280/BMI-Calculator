@@ -1,83 +1,122 @@
+//Shubham
+// Ensure proper visibility control on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const workoutPlan = document.getElementById('workoutPlan');
+    const selectedWorkoutPlan = document.getElementById('selectedWorkoutPlan');
+    workoutPlan.style.display = 'none';
+    selectedWorkoutPlan.style.display = 'none';
+    showSection('home'); // Show Home by default
+});
+
+// Helper function to reset visibility of Workout Plan and selected workout details
+function resetVisibility() {
+    const workoutPlan = document.getElementById('workoutPlan');
+    const selectedWorkoutPlan = document.getElementById('selectedWorkoutPlan');
+    workoutPlan.style.display = 'none';
+    selectedWorkoutPlan.style.display = 'none';
+}
+
+// Show the relevant section based on the section ID
 function showSection(sectionId) {
     let sections = document.querySelectorAll('.section');
     sections.forEach(section => section.style.display = "none");
     document.getElementById(sectionId).style.display = "block";
+//Shubham and Tejas
+    if (sectionId === 'bmi') {
+        resetVisibility();
+        const bmiResult = document.getElementById('bmiResult');
+        if (bmiResult) {
+            bmiResult.innerHTML = ''; // Clear any lingering results when navigating to BMI page
+        }
+    } else {
+        resetVisibility(); // Ensure Workout Plan and selected workout are hidden on non-BMI pages
+    }
 }
+
+//SHubham
 function addinchesinput() {
     let heightunit = document.getElementById('heightunit').value;
-    let inchesinput = document.getElementById('inchesinput');
+    let inchesContainer = document.getElementById('inchesContainer');
 
-    if (heightunit === "ft" && !inchesinput) {
-        document.getElementById('inchesin').innerHTML += 
-            '<label id="label">'+'Inches: '+'</label>'+'<input type="number" id="inchesinput" placeholder="Inches">';
-    } else if (heightunit !== "ft" && inchesinput) {
-        inchesinput.remove();
-        label.remove();
+    if (heightunit === "ft" && !inchesContainer) {
+        const newDiv = document.createElement('div');
+        newDiv.id = 'inchesContainer';
+        newDiv.innerHTML = 
+            '<label id="label">Inches: </label>' +
+            '<input type="number" id="inchesinput" placeholder="Inches">';
+        document.getElementById('inchesin').appendChild(newDiv);
+    } else if (heightunit !== "ft" && inchesContainer) {
+        inchesContainer.remove();
     }
 }
+
 function calculateBMI() {
-        let weight = document.getElementById("weight").value;
-        let height = document.getElementById("height").value;
-        if (document.getElementById('heightunit').value=="select-unit" || document.getElementById('weightunit').value=="select-unit") {
-            document.getElementById("bmiResult").innerText = "Invalid input: Please select weight and height units.";
-            return;
-        }
-        if(document.getElementById('heightunit').value=="ft"){
-            inches = document.getElementById('inchesinput').value
-            height = (height * 0.3048) + (inches * 0.0254);
-        }
-        if(document.getElementById('weightunit').value=="lbs"){
-            weight = weight * 0.453592;
-        }
-        weight = parseFloat(weight);
-        height = parseFloat(height);
-    //Tejas and shubham
-        if (weight > 0 && height > 0) {
-            let bmi = (weight / (height * height)).toFixed(2);
-            document.getElementById("bmiResult").innerHTML = 'Your BMI: ' + bmi + '<br><br>' + 
-            'Do you need a diet and workout plan? <br>' + 
-            '<button onclick="showSection(\'workoutPlan\')">Yes</button>';
-        } else {
-            document.getElementById("bmiResult").innerText = "Please enter valid values.";
-        }
-}
+    let weight = document.getElementById("weight").value;
+    let height = document.getElementById("height").value;
 
-document.addEventListener("DOMContentLoaded", () => {
-    showSection('home');
-});
-
-//Tejas
-function showWorkout(level) {
-    // Hide the workout plan buttons by using display:"none";
-    document.getElementById('workoutPlan').style.display = "none";
-
-    // Hide all plans first(this is when the buttons are visible the plans are invisible/hidden)
-    document.getElementById('beginnerPlan').style.display = "none";
-    document.getElementById('intermediatePlan').style.display = "none";
-    document.getElementById('advancedPlan').style.display = "none";
-
-    // Show the selected plan and the back button(this is when a plan is selected the back buttons and the plan description is visible and the other buttons are invisible/hidden)
-    if (level === "beginner") {
-        document.getElementById('beginnerPlan').style.display = "block";
-    } else if (level === "intermediate") {
-        document.getElementById('intermediatePlan').style.display = "block";
-    } else if (level === "advanced") {
-        document.getElementById('advancedPlan').style.display = "block";
+    if (document.getElementById('heightunit').value == "select-unit" || document.getElementById('weightunit').value == "select-unit") {
+        document.getElementById("bmiResult").innerText = "Invalid input: Please select weight and height units.";
+        return;
+    }
+    if (document.getElementById('heightunit').value == "ft") {
+        let inches = document.getElementById('inchesinput')?.value || 0;
+        height = (height * 0.3048) + (inches * 0.0254);
+    }
+    if (document.getElementById('weightunit').value == "lbs") {
+        weight = weight * 0.453592;
     }
 
-    // Shows the back button when clicked on plans
-    document.getElementById('backButton').style.display = "block";
+    weight = parseFloat(weight);
+    height = parseFloat(height);
+
+    if (weight > 0 && height > 0) {
+        let bmi = (weight / (height * height)).toFixed(2);
+        document.getElementById("bmiResult").innerHTML = `
+            Your BMI: ${bmi} <br><br>
+            Do you need a diet and workout plan? <br>
+            <button onclick="showWorkoutSelection()">Yes</button>
+        `;
+    } else {
+        document.getElementById("bmiResult").innerText = "Please enter valid values.";
+    }
+}
+//Tejas
+function showWorkoutSelection() {
+    const bmiSection = document.getElementById('bmi');
+    bmiSection.style.display = 'none'; // Hide BMI calculator elements
+
+    const workoutPlan = document.getElementById('workoutPlan');
+    workoutPlan.style.display = 'flex'; // Show Workout Plan in Flexbox layout
 }
 
-function goBack() {
-    // Hide all workout plans when clicked "back"
-    document.getElementById('beginnerPlan').style.display = "none";
-    document.getElementById('intermediatePlan').style.display = "none";
-    document.getElementById('advancedPlan').style.display = "none";
+function showWorkout(level) {
+    const workoutPlan = document.getElementById('workoutPlan');
+    workoutPlan.style.display = 'none'; // Hide the Workout Plan section
 
-    // Shows the workout plan selection buttons again after clicking "back"
-    document.getElementById('workoutPlan').style.display = "block";
+    const selectedWorkoutPlan = document.getElementById('selectedWorkoutPlan');
+    let content = '';
 
-    // Hides the "back" button when back to plan selection page
-    document.getElementById('backButton').style.display = "none";
+    if (level === 'beginner') {
+        content = '<h1>Beginner Plan</h1><p>This plan is designed for newcomers looking to ease into fitness.</p>';
+    } else if (level === 'intermediate') {
+        content = '<h1>Intermediate Plan</h1><p>This plan is for those ready to build consistency and strength.</p>';
+    } else if (level === 'advanced') {
+        content = '<h1>Advanced Plan</h1><p>This plan is tailored for seasoned fitness enthusiasts seeking peak performance.</p>';
+    }
+
+    selectedWorkoutPlan.innerHTML = `
+        <div style="padding: 20px; text-align: center;">
+            ${content}
+            <button onclick="goBackToSelection()" style="margin-top: 20px;">Back</button>
+        </div>
+    `;
+    selectedWorkoutPlan.style.display = 'block'; // Make selected plan visible
+}
+
+function goBackToSelection() {
+    const selectedWorkoutPlan = document.getElementById('selectedWorkoutPlan');
+    selectedWorkoutPlan.style.display = 'none'; // Hide the selected workout plan
+
+    const workoutPlan = document.getElementById('workoutPlan');
+    workoutPlan.style.display = 'flex'; // Restore Workout Plan options
 }

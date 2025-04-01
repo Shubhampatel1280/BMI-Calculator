@@ -1,4 +1,4 @@
-*{
+* {
     user-select: none;
 }
 body {
@@ -100,35 +100,57 @@ input, select {
     text-align: left;
 }
 
-/* New Styles for Workout Plan Section(Tejas) */
-#workoutPlan button {
-    display: inline-block;
-    width: 30%;
-    margin: 10px auto;
-    font-size: 18px;
-}
-#planDetails {
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-#backButton {
-    display: none;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #ffcc00;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: block;
-    width: fit-content;
+/* Workout Plan Section (Tejas)*/
+#workoutPlan {
+    display: none; /* Hidden by default */
+    flex-wrap: nowrap;
+    justify-content: space-between; /* Distribute options evenly */
+    align-items: center; /* Align options vertically centered */
+    width: 90%;
+    margin: 50px auto; /* Center the section */
+    text-align: center;
 }
 
-#backButton:hover {
-    background-color: #e6b800;
+.section-with-background {
+    width: 30%; /* Each option takes 1/3 of the available width */
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem; 
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-with-background:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Images for Workout Plans */
+#beginnerSection {
+    background-image: url('https://hips.hearstapps.com/hmg-prod/images/muscular-shirtless-man-exercising-with-dumbbells-royalty-free-image-1711991944.jpg?crop=0.668xw:1.00xh;0.296xw,0&resize=640:*');
+}
+
+#intermediateSection {
+    background-image: url('https://kingsbox.com/blog/wp-content/uploads/2022/01/Allenamenti-funzionale-Routine-intermedia-con-esercizi-.png');
+}
+
+#advancedSection {
+    background-image: url('https://img.mensxp.com/media/content/2019/May/do-these-5-things-to-recover-from-your-intense-workout-like-a-pro-athlete-740x500-1-1558609961.jpg?w=780&h=528&cc=1');
+}
+
+/* Ensure responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .workout-sections {
+        flex-direction: column; /* Stack sections vertically on smaller screens */
+        align-items: center;
+    }
+    .section-with-background {
+        width: 90%;
+        margin-bottom: 20px;
+    }
 }
