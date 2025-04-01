@@ -325,12 +325,26 @@
         <p id="bmiResult"></p>
     </div>
 <!-- Tejas -->
-    <div id="workoutPlan" class="section" style="display: none;">
-        <h1>Select Your Workout Plan</h1>
-        <button onclick="showWorkout('beginner')">Beginner</button>
-        <button onclick="showWorkout('intermediate')">Intermediate</button>
-        <button onclick="showWorkout('advanced')">Advanced</button>
+<div id="workoutPlan" class="section">
+    <h1>Select Your Workout Plan</h1>
+    <div class="workout-options">
+        <div class="workout-card" onclick="showWorkout('beginner')">
+            <img src="photo-1594381898411-846e7d193883.avif" alt="Beginner Workout">
+            <h3>Beginner</h3>
+            <p>Great for newcomers starting their fitness journey.</p>
+        </div>
+        <div class="workout-card" onclick="showWorkout('intermediate')">
+            <img src="photo-1590487988256-9ed24133863e.avif" alt="Intermediate Workout">
+            <h3>Intermediate</h3>
+            <p>For those with some experience, looking to level up.</p>
+        </div>
+        <div class="workout-card" onclick="showWorkout('advanced')">
+            <img src="photo-1576678927484-cc907957088c.avif" alt="Advanced Workout">
+            <h3>Advanced</h3>
+            <p>Intense routines for seasoned fitness enthusiasts.</p>
+        </div>
     </div>
+</div>
     
     <!-- Workout Plans (This section is initially hidden since we are doing everything on a single page) -->
     <div id="beginnerPlan" class="section" style="display: none;">

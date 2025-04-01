@@ -2,6 +2,11 @@ function showSection(sectionId) {
     let sections = document.querySelectorAll('.section');
     sections.forEach(section => section.style.display = "none");
     document.getElementById(sectionId).style.display = "block";
+    
+    // Hide back button if navigating to any section other than workoutPlan
+    if (sectionId !== "workoutPlan") {
+        document.getElementById('backButton').style.display = "none";
+    }
 }
 function addinchesinput() {
     let heightunit = document.getElementById('heightunit').value;
@@ -90,15 +95,20 @@ function showWorkout(level) {
     getDietAndWorkoutPlan(bmi, level, weight, height);
 }
 function goBack() {
-    // Hide all workout plans when clicked "back"
-    document.getElementById('beginnerPlan').style.display = "none";
-    document.getElementById('intermediatePlan').style.display = "none";
-    document.getElementById('advancedPlan').style.display = "none";
+    // Check if the workout section was opened
+    if (document.getElementById('workoutPlan').style.display === "none") {
+        document.getElementById('beginnerPlan').style.display = "none";
+        document.getElementById('intermediatePlan').style.display = "none";
+        document.getElementById('advancedPlan').style.display = "none";
+        
+        // Go back to workout selection
+        document.getElementById('workoutPlan').style.display = "block";
+    } else {
+        // If not in workout, go to home or previous section
+        showSection('home');
+    }
 
-    // Shows the workout plan selection buttons again after clicking "back"
-    document.getElementById('workoutPlan').style.display = "block";
-
-    // Hides the "back" button when back to plan selection page
+    // Hide the back button when going back
     document.getElementById('backButton').style.display = "none";
 }
 // Shubham & Joy
