@@ -214,19 +214,19 @@ const products = [
     },
     {
         id: 2,
-        name: "Creatine Monohydrate",
-        price: 24.99,
+        name: "MuscleBlaze CreaPRO Creatine with Creapure® Powder from Germany, 250 g (0.55 lb), Fruit Punch",
+        price: 1249,
         category: "creatine",
         img: "https://img4.hkrtcdn.com/28512/prd_2851103-MuscleBlaze-CreaPRO-Creatine-with-Creapure-Powder-from-Germany-0.55-lb-Fruit-Punch_o.jpg",
-        desc: "Clinically proven to increase strength and power output."
+        desc: "MuscleBlaze CreaPro is now available in Fruit Punch flavor which adds a zing to your pre-workout regime. Each serving of MuscleBlaze CreaPro delivers 3000mg of Creapure®."
     },
     {
         id: 3,
-        name: "Pre-Workout Energizer",
-        price: 29.99,
+        name: "MuscleBlaze Pre Workout WrathX, 510 g (1.12 lb), Sour Green",
+        price: 1999,
         category: "preworkout",
         img: "https://img4.hkrtcdn.com/35591/prd_3559003-MuscleBlaze-Pre-Workout-WrathX-0.74-lb-Fruit-Fury_o.jpg",
-        desc: "Powerful formula to boost energy, focus and endurance."
+        desc: "The all new MuscleBlaze® WrathX is the ultimate pre workout mix to give you an advanced level of performance that you have never witnessed before."
     },
     {
         id: 4,
@@ -238,19 +238,19 @@ const products = [
     },
     {
         id: 5,
-        name: "Creatine HCL",
-        price: 34.99,
+        name: "Wellcore - Pure Micronised Creatine Monohydrate (122g, 33 Servings) Fruit Fusion",
+        price: 599,
         category: "creatine",
         img: "https://m.media-amazon.com/images/I/71wLbVnsgSL.jpg",
-        desc: "Advanced creatine formula with enhanced absorption."
+        desc: "With no artificial colours, no artificial flavors, no sugar & no fillers you can be rest assured that you’re choosing a high-quality creatine supplement to support your health & physical performance.."
     },
     {
         id: 6,
-        name: "Nitric Oxide Booster",
-        price: 27.99,
+        name: "MuscleBlaze PRE Workout 200 Xtreme, 100 g (0.22 lb), Fruit Punch",
+        price: 599,
         category: "preworkout",
         img: "https://img4.hkrtcdn.com/37799/prd_3779883-MuscleBlaze-PRE-Workout-200-Xtreme-0.22-lb-Fruit-Punch_o.jpg",
-        desc: "Promotes vasodilation for insane pumps and endurance."
+        desc: "MB Pre-Workout 200 Xtreme is a great Pre-Workout formula that prepares your body for astonishing workouts,This power-packed formula contains 200mg Caffeine + 200mg Theanine for instant and sustained release of energy to keep you focused and active."
     },
     {
         id: 7,
@@ -262,19 +262,19 @@ const products = [
     },
     {
         id: 8,
-        name: "Creatine Complex",
-        price: 31.99,
+        name: "MuscleBlaze Creatine Monohydrate CreAMP, 280 g (0.61 lb), Juicy Berries",
+        price: 949,
         category: "creatine",
         img: "https://img6.hkrtcdn.com/38194/prd_3819395-MuscleBlaze-Creatine-Monohydrate-CreAMP-Juicy-Berries-0.61-lb_o.jpg",
-        desc: "Multi-phase creatine for sustained performance enhancement."
+        desc: "Each serving of MuscleBlaze CreAMP Creatine Monohydrate serves 3g of fast-absorbing and highly bioavailable creatine for building strength and endurance,Helps increase protein synthesis, which leads to increased muscle volume."
     },
     {
         id: 9,
-        name: "Nitric Oxide Booster",
-        price: 27.99,
+        name: "MuscleBlaze PRE Workout 200, 100 g (0.22 lb), Fruit Splash",
+        price: 699,
         category: "preworkout",
         img: "https://img6.hkrtcdn.com/37463/prd_3746225-MuscleBlaze-Pre-Workout-Ripped-0.55-lb-Fruit-Splash_o.jpg",
-        desc: "Promotes vasodilation for insane pumps and endurance."
+        desc: "MB Pre-Workout 200 is a great Pre-Workout formula that prepares your body for astonishing workouts,It is a clean source of energy with zero added sugar."
     },
     {
         id: 10,
@@ -286,23 +286,23 @@ const products = [
     },
     {
         id: 11,
-        name: "Creatine Monohydrate",
-        price: 24.99,
+        name: "MuscleBlaze Creatine Monohydrate CreAMP, 100 g (0.22 lb)",
+        price: 549,
         category: "creatine",
-        img: "https://img4.hkrtcdn.com/28512/prd_2851103-MuscleBlaze-CreaPRO-Creatine-with-Creapure-Powder-from-Germany-0.55-lb-Fruit-Punch_o.jpg",
-        desc: "Clinically proven to increase strength and power output."
+        img: "https://img8.hkrtcdn.com/35711/prd_3571057-MuscleBlaze-Creatine-Monohydrate-CreAMP-0.22-lb-Unflavoured_o.jpg",
+        desc: "Introducing MuscleBlaze CreAMP Creatine Monohydrate which contains 100% pure creatine monohydrate along with MB CreAbsorb to ensure creatine stability in the body."
     },
     {
         id: 12,
-        name: "Pre-Workout Energizer",
-        price: 29.99,
+        name: "MuscleBlaze WrathX Pump, 300 g (0.66 lb), Citrus Blast",
+        price: 1699,
         category: "preworkout",
-        img: "https://img4.hkrtcdn.com/35591/prd_3559003-MuscleBlaze-Pre-Workout-WrathX-0.74-lb-Fruit-Fury_o.jpg",
-        desc: "Powerful formula to boost energy, focus and endurance."
+        img: "https://img4.hkrtcdn.com/37430/prd_3742903-MuscleBlaze-WrathX-Pump-0.66-lb-Citrus-Blast_o.jpg",
+        desc: "The all new MuscleBlaze® WrathX PUMP is the ultimate pre workout mix to give you an advanced level of PUMP that you have never witnessed before, A mighty mix of Taurine, along with Caffeine for laser sharp mental focus and athletic performance."
     }
 ];
 
-// Display Products
+// Displaying Products
 function displayProducts(filter = 'all') {
     productGrid.innerHTML = '';
     
@@ -330,18 +330,18 @@ function displayProducts(filter = 'all') {
         productGrid.appendChild(productElement);
     });
     
-    // Add event listeners to "Add to Cart" buttons
+    // Adding event listeners to "Add to Cart" buttons
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', addToCart);
     });
 }
 
-// Add to Cart
+// Adding to Cart
 function addToCart(e) {
     const productId = parseInt(e.target.closest('.product-card').dataset.id);
     const product = products.find(item => item.id === productId);
     
-    // Check if product already in cart
+    // Checking if product already in cart
     const existingItem = cart.find(item => item.id === productId);
     
     if (existingItem) {
@@ -354,7 +354,7 @@ function addToCart(e) {
     showCartNotification();
 }
 
-// Show cart notification
+// Showing cart notification
 function showCartNotification() {
     cartIcon.classList.add('animate');
     setTimeout(() => {
@@ -362,13 +362,13 @@ function showCartNotification() {
     }, 500);
 }
 
-// Update Cart
+// Updating Cart
 function updateCart() {
-    // Update cart count
+    // Updating cart count
     const totalItems = cart.reduce((total, item) => total + item.amount, 0);
     cartCount.textContent = totalItems;
     
-    // Update cart content
+    // Updating cart content
     cartContent.innerHTML = '';
     
     if (cart.length === 0) {
@@ -394,11 +394,11 @@ function updateCart() {
             cartContent.appendChild(cartItem);
         });
         
-        // Calculate total
+        // Calculating total
         const total = cart.reduce((sum, item) => sum + (item.price * item.amount), 0);
         cartTotal.textContent = total.toFixed(2);
         
-        // Add event listeners to cart items
+        
         document.querySelectorAll('.decrease').forEach(btn => {
             btn.addEventListener('click', decreaseAmount);
         });
@@ -413,7 +413,7 @@ function updateCart() {
     }
 }
 
-// Decrease item amount
+// Decreasing item amount
 function decreaseAmount(e) {
     const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
     const cartItem = cart.find(item => item.name === productName);
@@ -427,7 +427,7 @@ function decreaseAmount(e) {
     updateCart();
 }
 
-// Increase item amount
+// Increasing item amount
 function increaseAmount(e) {
     const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
     const cartItem = cart.find(item => item.name === productName);
@@ -448,11 +448,11 @@ function clearCart() {
     updateCart();
 }
 
-// Filter products
+// Filtering products
 function filterProducts(e) {
     const filter = e.target.dataset.filter;
     
-    // Update active button
+    // Updating active button
     filterBtns.forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.filter === filter) {
@@ -463,9 +463,9 @@ function filterProducts(e) {
     displayProducts(filter);
 }
 
-// Initialize
+
 function init() {
-    // Display all products initially
+    // Displaying all products initially
     displayProducts();
     
     // Cart event listeners
@@ -484,24 +484,12 @@ function init() {
         btn.addEventListener('click', filterProducts);
     });
     
-    // Checkout button
-    // document.querySelector('.checkout').addEventListener('click', () => {
-    //     if (cart.length > 0) {
-    //         alert('Thank you for your purchase!');
-    //         clearCart();
-    //         cartOverlay.classList.remove('show');
-    //     } else {
-    //         alert('Your cart is empty!');
-    //     }
-    // });
-    // ... (previous code remains the same)
-
-// Create checkout payment modal
+// Creating checkout payment modal
 const checkoutModal = document.createElement('div');
 checkoutModal.classList.add('checkout-modal');
 document.body.appendChild(checkoutModal);
 
-// Modify the checkout button event listener
+
 document.querySelector('.checkout').addEventListener('click', () => {
     if (cart.length > 0) {
         showCheckoutModal();
@@ -510,12 +498,11 @@ document.querySelector('.checkout').addEventListener('click', () => {
     }
 });
 
-// ... (previous code remains the same until showCheckoutModal function)
 
 function showCheckoutModal() {
     checkoutModal.innerHTML = `
         <div class="checkout-content">
-            <span class="close-checkout">&times;</span>
+            <span class="close-cart"><i class="fas fa-times"></i></span>
             <h2>Checkout</h2>
             
             <div class="checkout-steps">
@@ -570,7 +557,7 @@ function showCheckoutModal() {
                 </div>
                 
                 <div class="form-actions">
-                    <button type="button" class="btn btn-secondary close-checkout">Cancel</button>
+                    <button type="button" class="btn btn-secondary close-checkout">X</button>
                     <button type="button" class="btn btn-primary proceed-to-payment">Proceed to Payment</button>
                 </div>
             </form>
@@ -641,7 +628,7 @@ function showCheckoutModal() {
 
     checkoutModal.classList.add('show');
 
-    // Close modal
+
     checkoutModal.querySelector('.close-checkout').addEventListener('click', () => {
         checkoutModal.classList.remove('show');
     });
@@ -653,7 +640,7 @@ function showCheckoutModal() {
         const shippingStep = checkoutModal.querySelector('.step[data-step="shipping"]');
         const paymentStep = checkoutModal.querySelector('.step[data-step="payment"]');
         
-        // Validate form
+        // Validating form
         let isValid = true;
         shippingForm.querySelectorAll('[required]').forEach(input => {
             if (!input.value.trim()) {
@@ -674,7 +661,7 @@ function showCheckoutModal() {
         }
     });
 
-    // Back to shipping
+    
     checkoutModal.querySelector('.back-to-shipping').addEventListener('click', () => {
         const shippingForm = checkoutModal.querySelector('.shipping-form');
         const paymentForm = checkoutModal.querySelector('.payment-form');
@@ -695,7 +682,7 @@ function showCheckoutModal() {
 }
 
 function completePurchase(paymentMethod) {
-    // Get shipping info
+    // Getting shipping info
     const shippingInfo = {
         name: document.getElementById('full-name').value,
         contact: document.getElementById('contact-number').value,
@@ -706,9 +693,6 @@ function completePurchase(paymentMethod) {
         pincode: document.getElementById('pincode').value,
         country: document.getElementById('country').value
     };
-
-    // Here you would typically send the order to your backend
-    // For this demo, we'll just show a confirmation
     
     checkoutModal.innerHTML = `
         <div class="checkout-content">
@@ -747,7 +731,7 @@ function getPaymentMethodName(method) {
     return methods[method] || method;
 }
 function completePurchase(paymentMethod) {
-    // Get shipping info
+    // Getting shipping info
     const shippingInfo = {
         name: document.getElementById('full-name').value,
         contact: document.getElementById('contact-number').value,
@@ -759,7 +743,7 @@ function completePurchase(paymentMethod) {
         country: document.getElementById('country').value
     };
 
-    // Generate order ID
+    // Generating order ID
     const orderId = 'ORD' + Math.floor(Math.random() * 1000000);
     const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.amount), 0).toFixed(2);
     const orderDate = new Date().toLocaleDateString('en-IN', {
@@ -813,7 +797,7 @@ function completePurchase(paymentMethod) {
         </div>
     `;
 
-    // Add event listener for PDF download
+    // Adding event listener for PDF download
     checkoutModal.querySelector('.download-bill').addEventListener('click', () => {
         generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal);
     });
@@ -827,21 +811,20 @@ function completePurchase(paymentMethod) {
 }
 
 function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal) {
-    // Create new PDF document
+    // Creating PDF document
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
-    // Add logo and header
     doc.setFontSize(20);
     doc.setTextColor(40);
     doc.setFont('helvetica', 'bold');
-    doc.text('FitFuel', 105, 20, { align: 'center' });
+    doc.text('CoreMatrix', 105, 20, { align: 'center' });
     doc.setFontSize(12);
     doc.setTextColor(100);
     doc.setFont('helvetica', 'normal');
     doc.text('Premium Gym Supplements', 105, 27, { align: 'center' });
     
-    // Add order info
+    // Order info
     doc.setFontSize(14);
     doc.setTextColor(40);
     doc.text(`Order #${orderId}`, 14, 40);
@@ -849,24 +832,22 @@ function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal
     doc.text(`Date: ${orderDate}`, 14, 47);
     doc.text(`Payment Method: ${getPaymentMethodName(paymentMethod)}`, 14, 54);
     
-    // Add shipping info
+    // Shipping info
     doc.text(`Shipping To:`, 14, 64);
-    doc.text(`${shippingInfo.name}`, 14, 71);
-    doc.text(`${shippingInfo.address}`, 14, 78);
+    doc.text(`Name :${shippingInfo.name}`, 14, 71);
+    doc.text(`Address :${shippingInfo.address}`, 14, 78);
     doc.text(`${shippingInfo.city}, ${shippingInfo.state} - ${shippingInfo.pincode}`, 14, 85);
-    doc.text(`${shippingInfo.country}`, 14, 92);
     doc.text(`Contact: ${shippingInfo.contact}`, 14, 99);
-    doc.text(`Email: ${shippingInfo.email}`, 14, 106);
     
-    // Add order items table
+    //Order items table
     doc.autoTable({
         startY: 120,
         head: [['Item', 'Qty', 'Price', 'Total']],
         body: cart.map(item => [
             item.name,
             item.amount,
-            `₹${item.price.toFixed(2)}`,
-            `₹${(item.price * item.amount).toFixed(2)}`
+            `${item.price.toFixed(2)}`,
+            `${(item.price * item.amount).toFixed(2)}`
         ]),
         headStyles: {
             fillColor: [255, 107, 107],
@@ -889,23 +870,21 @@ function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal
         }
     });
     
-    // Add total
+    // Total
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.text(`Total: ₹${orderTotal}`, 160, doc.lastAutoTable.finalY + 20);
+    doc.text(`Total: ${orderTotal}`, 160, doc.lastAutoTable.finalY + 20);
     
-    // Add footer
+    // Footer
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(100);
     doc.text('Thank you for your purchase!', 105, doc.lastAutoTable.finalY + 30, { align: 'center' });
     doc.text('CoreMatrix', 105, doc.lastAutoTable.finalY + 35, { align: 'center' });
     
-    // Save the PDF
+    // Saving the PDF
     doc.save(`CoreMatrix_Order_${orderId}.pdf`);
 }
 }
 
-
-// Run initialization
 init();
