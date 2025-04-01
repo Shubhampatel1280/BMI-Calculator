@@ -13,6 +13,7 @@
 <body>
     <nav>
         <ul>
+            <li><a href="#" onclick="showSection('home')">CoreMatrix</a></li>
             <li><a href="#" onclick="showSection('home')">Home</a></li>
             <li><a href="#" onclick="showSection('products')">Products</a></li>
             <li><a href="#" onclick="showSection('about')">About Us</a></li>
@@ -48,7 +49,7 @@
                 </div>
                 
                 <div class="home-image">
-                    <img src="Screenshot_2025-03-31_191229[1].png" alt="Fitness Illustration">
+                    <img src="photo-1517836357463-d25dfeac3438.avif" alt="Fitness Illustration">
                 </div>
             </div>
         </div>
@@ -249,55 +250,109 @@
 
     <div id="about" class="section">
         <h1>About Us</h1>
-        <p>At <strong>Diet, Workout & Supplements Suggestion System</strong>, we are dedicated to helping individuals achieve their health and fitness goals through structured diet plans, effective workout routines, and expert supplement recommendations. Our approach is backed by science, ensuring that every suggestion is tailored to personal needs and reliable data.</p>
+        <p>
+            At <strong>Diet, Workout & Supplements Suggestion System</strong>, we are dedicated to helping individuals achieve their health and fitness goals through structured diet plans, effective workout routines, and expert supplement recommendations. Our approach is backed by science, ensuring that every suggestion is tailored to personal needs and reliable data.
+        </p>
     
-        <h2>Our Mission</h2>
-        <p>To provide personalized and scientifically driven guidance that empowers individuals to adopt a healthier lifestyle and maintain long-term wellness.</p>
+        <div class="about-grid">
+            <div class="about-box">
+                <h2>Our Mission</h2>
+                <p>
+                    To provide personalized and scientifically driven guidance that empowers individuals to adopt a healthier lifestyle and maintain long-term wellness.
+                </p>
+            </div>
     
-        <h2>Our Vision</h2>
-        <p>To be a trusted platform that bridges the gap between professional health expertise and everyday fitness, offering customized solutions to individuals at all levels.</p>
+            <div class="about-box">
+                <h2>Our Vision</h2>
+                <p>
+                    To be a trusted platform that bridges the gap between professional health expertise and everyday fitness, offering customized solutions to individuals at all levels.
+                </p>
+            </div>
+        </div>
     
-        <h2>Why Choose Us Over Other Sites?</h2>
-        <ul>
+        <h2>Why Choose Us?</h2>
+        <ul class="why-choose">
             <li><strong>Personalized Approach</strong> – We customize diet, workout, and supplement plans based on individual body types, fitness levels, and health goals.</li>
-            <li><strong>Expert-Backed Recommendations</strong> – Our team collaborates with certified fitness trainers, nutritionists, and health professionals to ensure accuracy and effectiveness.</li>
-            <li><strong>Data-Driven Insights</strong> – We incorporate advanced analytics, BMI assessments, and body metrics tracking to refine your fitness journey.</li>
-            <li><strong>Comprehensive Guidance</strong> – Unlike generic health platforms, we provide step-by-step meal plans, structured workout programs, and supplement advice tailored to specific needs.</li>
-            <li><strong>User-Friendly Experience</strong> – Our interface is designed for ease of use, making it simple to navigate and access the information needed for a successful fitness journey.</li>
+            <li><strong>Expert-Backed Recommendations</strong> – Our team collaborates with certified fitness trainers, nutritionists, and health professionals.</li>
+            <li><strong>Data-Driven Insights</strong> – Advanced analytics, BMI assessments, and body metrics tracking to refine your fitness journey.</li>
+            <li><strong>Comprehensive Guidance</strong> – Step-by-step meal plans, structured workout programs, and supplement advice tailored to specific needs.</li>
+            <li><strong>User-Friendly Experience</strong> – Easy-to-navigate interface for a seamless fitness journey.</li>
         </ul>
+    
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="WhatsApp Image 2025-04-01 at 15.04.36_defcc881.jpg" alt="Shubham Patel">
+                <h3>Shubham Patel</h3>
+                <p>Lead Backend Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="WhatsApp Image 2025-04-01 at 14.51.35_b7633612.jpg" alt="Tejas Metya">
+                <h3>Tejas Metya</h3>
+                <p>Frontend Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="WhatsApp Image 2025-04-01 at 14.38.06_cb22be2e.jpg" alt="Joy">
+                <h3>Joy</h3>
+                <p>UI/UX Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="WhatsApp Image 2025-04-01 at 14.40.12_ea06a07e.jpg" alt="Cristo Dsilva">
+                <h3>Cristo Dsilva</h3>
+                <p>Database Engineer</p>
+            </div>
+            <div class="team-member">
+                <img src="placeholder.jpg" alt="Developer 5">
+                <h3>Vedant</h3>
+                <p>Security Specialist</p>
+            </div>
+        </div>
     </div>
     <div id="contact" class="section" style="display: none;">
         <h1>Contact Us</h1>
-        <p>Have a question or need assistance? Our team is here to help! Reach out to us for any inquiries about diet plans, workouts, or supplement suggestions.</p>
-        
+        <p class="contact-desc">
+            Have a question or need assistance? Our team is here to help! Reach out to us for any inquiries about diet plans, workouts, or supplement suggestions.
+        </p>
+    
         <div class="contact-container">
             <div class="contact-info">
                 <h2>Get in Touch</h2>
-                <p><strong>Email:</strong> support@example.com</p>
-                <p><strong>Phone:</strong> +123 456 7890</p>
-                <p><strong>Address:</strong> 123 Fitness Street, Wellness City, WC 45678</p>
-                <p><strong>Working Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM (PST)</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> corematrix@gmail.com</p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +123 456 7890</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 123 Benaulim, Goa, India 45678</p>
+                <p><i class="fas fa-clock"></i> <strong>Working Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM (PST)</p>
+    
                 <div class="contact-socials">
-                    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
                 </div>
             </div>
     
             <div class="contact-form">
                 <h2>Send Us a Message</h2>
                 <form id="contact-form">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <div class="input-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
     
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
     
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" placeholder="Enter subject" required>
+                    <div class="input-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" placeholder="Enter subject" required>
+                    </div>
     
-                    <label for="message">Message:</label>
-                    <textarea id="message" placeholder="Enter your message" rows="4" required></textarea>
+                    <div class="input-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" placeholder="Enter your message" rows="4" required></textarea>
+                    </div>
     
-                    <button type="submit">Send Message</button>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
                 </form>
             </div>
         </div>
