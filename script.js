@@ -2,8 +2,6 @@ function showSection(sectionId) {
     let sections = document.querySelectorAll('.section');
     sections.forEach(section => section.style.display = "none");
     document.getElementById(sectionId).style.display = "block";
-    
-    // Hide back button if navigating to any section other than workoutPlan
     if (sectionId !== "workoutPlan") {
         document.getElementById('backButton').style.display = "none";
     }
@@ -53,10 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Tejas
 function showWorkout(level) {
-    // Hide the workout plan buttons
-    document.getElementById('workoutPlan').style.display = "none";
 
-    // Hide all plans initially
+    document.getElementById('workoutPlan').style.display = "none";
     document.getElementById('beginnerPlan').style.display = "none";
     document.getElementById('intermediatePlan').style.display = "none";
     document.getElementById('advancedPlan').style.display = "none";
@@ -66,20 +62,16 @@ function showWorkout(level) {
 
     if (document.getElementById('heightunit').value == "ft") {
         let inches = parseFloat(document.getElementById('inchesinput').value) || 0;
-        height = (height * 0.3048) + (inches * 0.0254); // Convert to meters
+        height = (height * 0.3048) + (inches * 0.0254);
     }
 
     if (document.getElementById('weightunit').value == "lbs") {
-        weight = weight * 0.453592; // Convert to kg
+        weight = weight * 0.453592;
     }
-
-    // **Ensure BMI is calculated correctly**
     let bmi = weight / (height * height);
-    bmi = parseFloat(bmi.toFixed(2)); // Round to 2 decimal places
+    bmi = parseFloat(bmi.toFixed(2));
 
-    console.log("BMI:", bmi, "Level:", level); // Debugging log
-
-    // Show the selected plan
+    console.log("BMI:", bmi, "Level:", level);
     if (level === "beginner") {
         document.getElementById('beginnerPlan').style.display = "block";
     } else if (level === "intermediate") {
@@ -87,29 +79,23 @@ function showWorkout(level) {
     } else if (level === "advanced") {
         document.getElementById('advancedPlan').style.display = "block";
     }
-
-    // Show the back button
     document.getElementById('backButton').style.display = "block";
-
-    // **Pass the correct BMI to getDietAndWorkoutPlan**
     getDietAndWorkoutPlan(bmi, level, weight, height);
 }
 function goBack() {
-    // Check if the workout section was opened
     if (document.getElementById('workoutPlan').style.display === "none") {
         document.getElementById('beginnerPlan').style.display = "none";
         document.getElementById('intermediatePlan').style.display = "none";
         document.getElementById('advancedPlan').style.display = "none";
-        
-        // Go back to workout selection
         document.getElementById('workoutPlan').style.display = "block";
     } else {
-        // If not in workout, go to home or previous section
         showSection('home');
     }
-
-    // Hide the back button when going back
     document.getElementById('backButton').style.display = "none";
+}
+// Shubham
+function redirectToProducts() {
+    showSection('products');
 }
 // Shubham & Joy
 function getDietAndWorkoutPlan(bmi, level, weight, height) {
@@ -125,11 +111,11 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
     if (bmi > 24.9) { // Overweight or Obese
         targetWeight = level === "beginner" ? maxWeight :
                        level === "intermediate" ? midWeight :
-                       minWeight; // Advanced loses the most weight
+                       minWeight;
     } else {
         targetWeight = level === "beginner" ? minWeight :
                       level === "intermediate" ? midWeight :
-                     maxWeight; // Normal or underweight cases remain unchanged
+                     maxWeight;
     }
 
     let weightDiff = weight - targetWeight;
@@ -194,11 +180,11 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
     '<div id="recommendation"><h2>' + recommendation + '</h2></div>' +
     '<div id="target-weight"><p><b>Target Weight: ' + targetWeight.toFixed(2) + 'kg</b></p></div>' +
     '<p>' + diet + '</p>' +
-    '<p>' + workout + '</p>';
+    '<p>' + workout + '</p>'+
+    '<button class="redirect-btn" onclick="redirectToProducts()">'+"Recommended Products"+'</button>';
 }
 
 // Cristo
-// DOM Elements
 const cartIcon = document.querySelector('.cart-icon');
 const cartOverlay = document.querySelector('.cart-overlay');
 const closeCart = document.querySelector('.close-cart');
@@ -209,10 +195,8 @@ const cartCount = document.querySelector('.cart-count');
 const productGrid = document.querySelector('.product-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-// Cart
 let cart = [];
 
-// Product Data
 const products = [
     {
         id: 1,
@@ -312,7 +296,6 @@ const products = [
     }
 ];
 
-// Displaying Products
 function displayProducts(filter = 'all') {
     productGrid.innerHTML = '';
     
@@ -340,18 +323,14 @@ function displayProducts(filter = 'all') {
         productGrid.appendChild(productElement);
     });
     
-    // Adding event listeners to "Add to Cart" buttons
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', addToCart);
     });
 }
 
-// Adding to Cart
 function addToCart(e) {
     const productId = parseInt(e.target.closest('.product-card').dataset.id);
     const product = products.find(item => item.id === productId);
-    
-    // Checking if product already in cart
     const existingItem = cart.find(item => item.id === productId);
     
     if (existingItem) {
@@ -364,21 +343,16 @@ function addToCart(e) {
     showCartNotification();
 }
 
-// Showing cart notification
 function showCartNotification() {
     cartIcon.classList.add('animate');
     setTimeout(() => {
         cartIcon.classList.remove('animate');
     }, 500);
 }
-
-// Updating Cart
 function updateCart() {
-    // Updating cart count
     const totalItems = cart.reduce((total, item) => total + item.amount, 0);
     cartCount.textContent = totalItems;
     
-    // Updating cart content
     cartContent.innerHTML = '';
     
     if (cart.length === 0) {
@@ -404,7 +378,6 @@ function updateCart() {
             cartContent.appendChild(cartItem);
         });
         
-        // Calculating total
         const total = cart.reduce((sum, item) => sum + (item.price * item.amount), 0);
         cartTotal.textContent = total.toFixed(2);
         
@@ -423,7 +396,6 @@ function updateCart() {
     }
 }
 
-// Decreasing item amount
 function decreaseAmount(e) {
     const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
     const cartItem = cart.find(item => item.name === productName);
@@ -437,7 +409,6 @@ function decreaseAmount(e) {
     updateCart();
 }
 
-// Increasing item amount
 function increaseAmount(e) {
     const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
     const cartItem = cart.find(item => item.name === productName);
@@ -445,24 +416,19 @@ function increaseAmount(e) {
     updateCart();
 }
 
-// Remove item
 function removeItem(e) {
     const productName = e.target.closest('.cart-item').querySelector('h4').textContent;
     cart = cart.filter(item => item.name !== productName);
     updateCart();
 }
 
-// Clear cart
 function clearCart() {
     cart = [];
     updateCart();
 }
 
-// Filtering products
 function filterProducts(e) {
     const filter = e.target.dataset.filter;
-    
-    // Updating active button
     filterBtns.forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.filter === filter) {
@@ -475,10 +441,8 @@ function filterProducts(e) {
 
 
 function init() {
-    // Displaying all products initially
     displayProducts();
     
-    // Cart event listeners
     cartIcon.addEventListener('click', () => {
         cartOverlay.classList.add('show');
     });
@@ -489,12 +453,10 @@ function init() {
     
     clearCartBtn.addEventListener('click', clearCart);
     
-    // Filter buttons
     filterBtns.forEach(btn => {
         btn.addEventListener('click', filterProducts);
     });
     
-// Creating checkout payment modal
 const checkoutModal = document.createElement('div');
 checkoutModal.classList.add('checkout-modal');
 document.body.appendChild(checkoutModal);
@@ -643,14 +605,12 @@ function showCheckoutModal() {
         checkoutModal.classList.remove('show');
     });
 
-    // Proceed to payment
     checkoutModal.querySelector('.proceed-to-payment').addEventListener('click', () => {
         const shippingForm = checkoutModal.querySelector('.shipping-form');
         const paymentForm = checkoutModal.querySelector('.payment-form');
         const shippingStep = checkoutModal.querySelector('.step[data-step="shipping"]');
         const paymentStep = checkoutModal.querySelector('.step[data-step="payment"]');
-        
-        // Validating form
+
         let isValid = true;
         shippingForm.querySelectorAll('[required]').forEach(input => {
             if (!input.value.trim()) {
@@ -684,7 +644,6 @@ function showCheckoutModal() {
         paymentStep.classList.remove('active');
     });
 
-    // Confirm payment
     checkoutModal.querySelector('.confirm-payment').addEventListener('click', () => {
         const paymentMethod = checkoutModal.querySelector('input[name="payment"]:checked').value;
         completePurchase(paymentMethod);
@@ -692,7 +651,6 @@ function showCheckoutModal() {
 }
 
 function completePurchase(paymentMethod) {
-    // Getting shipping info
     const shippingInfo = {
         name: document.getElementById('full-name').value,
         contact: document.getElementById('contact-number').value,
@@ -741,7 +699,6 @@ function getPaymentMethodName(method) {
     return methods[method] || method;
 }
 function completePurchase(paymentMethod) {
-    // Getting shipping info
     const shippingInfo = {
         name: document.getElementById('full-name').value,
         contact: document.getElementById('contact-number').value,
@@ -753,7 +710,6 @@ function completePurchase(paymentMethod) {
         country: document.getElementById('country').value
     };
 
-    // Generating order ID
     const orderId = 'ORD' + Math.floor(Math.random() * 1000000);
     const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.amount), 0).toFixed(2);
     const orderDate = new Date().toLocaleDateString('en-IN', {
@@ -806,8 +762,6 @@ function completePurchase(paymentMethod) {
             </div>
         </div>
     `;
-
-    // Adding event listener for PDF download
     checkoutModal.querySelector('.download-bill').addEventListener('click', () => {
         generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal);
     });
@@ -821,7 +775,6 @@ function completePurchase(paymentMethod) {
 }
 
 function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal) {
-    // Creating PDF document
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
@@ -833,8 +786,7 @@ function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal
     doc.setTextColor(100);
     doc.setFont('helvetica', 'normal');
     doc.text('Premium Gym Supplements', 105, 27, { align: 'center' });
-    
-    // Order info
+
     doc.setFontSize(14);
     doc.setTextColor(40);
     doc.text(`Order #${orderId}`, 14, 40);
@@ -842,14 +794,12 @@ function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal
     doc.text(`Date: ${orderDate}`, 14, 47);
     doc.text(`Payment Method: ${getPaymentMethodName(paymentMethod)}`, 14, 54);
     
-    // Shipping info
     doc.text(`Shipping To:`, 14, 64);
     doc.text(`Name :${shippingInfo.name}`, 14, 71);
     doc.text(`Address :${shippingInfo.address}`, 14, 78);
     doc.text(`${shippingInfo.city}, ${shippingInfo.state} - ${shippingInfo.pincode}`, 14, 85);
     doc.text(`Contact: ${shippingInfo.contact}`, 14, 99);
     
-    //Order items table
     doc.autoTable({
         startY: 120,
         head: [['Item', 'Qty', 'Price', 'Total']],
@@ -880,21 +830,17 @@ function generatePDF(orderId, orderDate, shippingInfo, paymentMethod, orderTotal
         }
     });
     
-    // Total
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text(`Total: ${orderTotal}`, 160, doc.lastAutoTable.finalY + 20);
     
-    // Footer
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(100);
     doc.text('Thank you for your purchase!', 105, doc.lastAutoTable.finalY + 30, { align: 'center' });
     doc.text('CoreMatrix', 105, doc.lastAutoTable.finalY + 35, { align: 'center' });
     
-    // Saving the PDF
     doc.save(`CoreMatrix_Order_${orderId}.pdf`);
 }
 }
-
 init();

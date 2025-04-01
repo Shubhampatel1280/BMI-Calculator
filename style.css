@@ -762,13 +762,6 @@ h1 {
     --gray-color: #666;
     --light-gray: #f8f9fa;
 }
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--light-color);
-    color: var(--dark-color);
-}
-
 /* Cart Icon */
 .cart-icon {
     position: fixed;
@@ -1489,4 +1482,18 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
+}
+.redirect-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: fit-content;
+    margin-left:270px;
+}
+.redirect-btn:hover {
+    background-color: #218838;
 }
