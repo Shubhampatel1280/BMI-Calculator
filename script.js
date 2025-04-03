@@ -39,7 +39,7 @@ function calculateBMI() {
             let bmi = (weight / (height * height)).toFixed(2);
             document.getElementById("bmiResult").innerHTML = 'Your BMI: ' + bmi + '<br><br>' + 
             'Do you need a diet and workout plan? <br>' + 
-            '<button onclick="showSection(\'workoutPlan\')">Yes</button>';
+            '<button class="yes_button" onclick="showSection(\'workoutPlan\')">Yes</button>';
         } else {
             document.getElementById("bmiResult").innerText = "Please enter valid values.";
         }
@@ -474,9 +474,7 @@ document.querySelector('.checkout').addEventListener('click', () => {
 function showCheckoutModal() {
     checkoutModal.innerHTML = `
         <div class="checkout-content">
-            <span class="close-cart"><i class="fas fa-times"></i></span>
             <h2>Checkout</h2>
-            
             <div class="checkout-steps">
                 <div class="step active" data-step="shipping">1. Shipping</div>
                 <div class="step" data-step="payment">2. Payment</div>

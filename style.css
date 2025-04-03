@@ -19,8 +19,9 @@ nav {
     background: #333;
     padding: 10px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
 }
-
 nav ul {
     list-style: none;
     padding: 0;
@@ -61,10 +62,12 @@ button {
     border: none;
     padding: 10px 20px;
     font-size: 16px;
-    font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 #home {
     width: 90%;
@@ -121,6 +124,7 @@ button {
     justify-content: space-between;
     gap: 40px;
     margin-bottom: 50px;
+    margin-left:30%;
 }
 
 .home-text {
@@ -312,6 +316,7 @@ button {
 
 button:hover {
     background-color: #e6b800;
+    transform: translateY(-2px);
 }
 input, select {
     width: 100%;
@@ -697,7 +702,6 @@ h1 {
     color: #ffcc00;
 }
 
-/* Form Styling */
 .contact-form form {
     display: flex;
     flex-direction: column;
@@ -725,8 +729,6 @@ h1 {
 .contact-form textarea {
     resize: none;
 }
-
-/* Submit Button */
 .contact-form button {
     display: flex;
     align-items: center;
@@ -741,8 +743,6 @@ h1 {
 .contact-form button:hover {
     background-color: #e6b800;
 }
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
@@ -752,17 +752,16 @@ h1 {
         width: 90%;
     }
 }
-/* Cristo's Products Section - Original Theme */
+
 :root {
-    --primary-color: #ffcc00; /* Original yellow */
-    --secondary-color: #333;  /* Dark color */
-    --dark-color: #333;       /* Main text color */
-    --light-color: #f4f4f4;   /* Background color */
-    --accent-color: #ffcc00;  /* Matching original accent */
+    --primary-color: #ffcc00;
+    --secondary-color: #333;
+    --dark-color: #333;   
+    --light-color: #f4f4f4; 
+    --accent-color: #ffcc00;  
     --gray-color: #666;
     --light-gray: #f8f9fa;
 }
-/* Cart Icon */
 .cart-icon {
     position: fixed;
     top: 60px;
@@ -772,11 +771,15 @@ h1 {
     cursor: pointer;
     z-index: 100;
 }
+.fas.fa-shopping-cart{
+    margin-top: 50px;
+    margin-right: 10px;
+}
 
 .cart-count {
     position: fixed;
-    top: 57px;
-    right: 10px;
+    top: 95px;
+    right: 25px;
     background: var(--primary-color);
     color: #333;
     border-radius: 50%;
@@ -788,8 +791,6 @@ h1 {
     font-size: 0.7rem;
     font-weight: bold;
 }
-
-/* Buttons */
 .btn {
     display: inline-block;
     background: var(--primary-color);
@@ -801,13 +802,16 @@ h1 {
     font-size: 1rem;
     transition: all 0.3s;
     font-weight: 600;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
 }
 
 .btn:hover {
     background: #e6b800;
+    transform: translateY(-2px);
 }
-
-/* Products Section */
 .products {
     padding: 2rem;
     background: white;
@@ -922,8 +926,6 @@ h1 {
 .add-to-cart:hover {
     background: #e6b800;
 }
-
-/* Cart Overlay Styles */
 .cart-overlay {
     position: fixed;
     top: 0;
@@ -968,15 +970,13 @@ h1 {
 .cart-buttons {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 100px;
 }
 
 .cart-buttons .btn {
     flex: 1;
     padding: 0.8rem;
 }
-
-/* Cart Item Styles */
 .cart-item {
     display: flex;
     align-items: center;
@@ -1024,12 +1024,17 @@ h1 {
 }
 
 .cart-item-remove {
-    color: var(--primary-color);
     cursor: pointer;
     padding: 0.5rem;
+    background: var(--primary-color);
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
 }
-
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .cart {
         max-width: 100%;
@@ -1048,8 +1053,6 @@ h1 {
         margin-bottom: 1rem;
     }
 }
-
-/* Checkout Modal */
 .checkout-modal {
     position: fixed;
     top: 0;
@@ -1091,16 +1094,11 @@ h1 {
     position: absolute;
     top: 15px;
     right: 25px;
-    font-size: 2rem;
-    color: var(--gray-color);
+    background-color: #ffffff;
+    color: #000000;
+    color: #333;
     cursor: pointer;
-    transition: var(--transition);
 }
-
-.close-checkout:hover {
-    color: var(--primary-color);
-}
-
 .payment-options-container {
     margin-bottom: 2rem;
 }
@@ -1173,16 +1171,18 @@ h1 {
 }
 
 .confirm-payment {
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: white;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: #333;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
-    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
+    width: 80%;
+    padding: 1rem;
+    margin-bottom:8px;
 }
 
 .confirm-payment:hover {
@@ -1213,20 +1213,21 @@ h1 {
 .return-to-shop {
     margin-top: 2rem;
     padding: 0.8rem 2rem;
-    background-color: var(--dark-color);
-    color: white;
+    background: var(--primary-color);
+    color: #333;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;;
 }
-
-.return-to-shop:hover {
-    background-color: #1a1f24;
+.btn.btn-secondary.back-to-shipping{
+    height:50px;
 }
-
-/* Responsive adjustments */
+.btn.btn-secondary.back-to-shipping:hover{
+    transform: translateY(-2px);
+}
 @media (max-width: 480px) {
     .checkout-content {
         padding: 1.5rem;
@@ -1245,8 +1246,6 @@ h1 {
         font-size: 1rem;
     }
 }
-
-/* Checkout Steps */
 .checkout-steps {
     display: flex;
     justify-content: space-between;
@@ -1281,8 +1280,6 @@ h1 {
 .step.active:after {
     background: var(--primary-color);
 }
-
-/* Shipping Form */
 .shipping-form {
     display: none;
 }
@@ -1347,20 +1344,12 @@ h1 {
 }
 
 .btn-secondary {
-    background-color: var(--gray-color);
-    color: white;
+    background-color: white;
+    color: rgb(0, 0, 0);
 }
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-}
-
-/* Error state */
 .error {
     border-color: #dc3545 !important;
 }
-
-/* Order Confirmation */
 .order-details {
     background-color: var(--light-gray);
     padding: 1.5rem;
@@ -1377,8 +1366,6 @@ h1 {
 .order-details p {
     margin-bottom: 0.5rem;
 }
-
-/* Order Items Table */
 .order-items {
     margin: 2rem 0;
 }
@@ -1404,8 +1391,6 @@ h1 {
 .order-items-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
-/* Confirmation Actions */
 .confirmation-actions {
     display: flex;
     justify-content: center;
@@ -1414,21 +1399,21 @@ h1 {
 }
 
 .download-bill {
-    padding: 0.8rem 1.5rem;
-    background-color: var(--dark-color);
-    color: white;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: #333;
     border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
 }
 
 .download-bill:hover {
-    background-color: #1a1f24;
+    transform: translateY(-2px);
 }
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .confirmation-actions {
         flex-direction: column;
@@ -1477,11 +1462,16 @@ h1 {
     display: none;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
     font-size: 16px;
+    background: var(--primary-color);
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
+    
 }
 .redirect-btn {
     background-color: #28a745;
@@ -1492,8 +1482,32 @@ h1 {
     margin-top: 10px;
     display: block;
     width: fit-content;
-    margin-left:270px;
+    margin-left:230px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
 }
 .redirect-btn:hover {
     background-color: #218838;
+}
+.yes_button{
+    margin-top:8px;
+}
+.calculateBMI{
+    margin-top:8px;
+}
+.logo{
+    width:50px;
+    margin-left: -1240px;
+    margin-bottom:12px;
+}
+.name{
+    margin-left: -2300spx;
+    margin-top:-75px;
+    font-size: 16px;
+    color: white;
+}
+.h{
+    margin-top:-25px;
 }
