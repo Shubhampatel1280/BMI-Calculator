@@ -1,3 +1,4 @@
+// Shubham
 function showSection(sectionId) {
     let sections = document.querySelectorAll('.section');
     sections.forEach(section => section.style.display = "none");
@@ -113,9 +114,9 @@ function getDietAndWorkoutPlan(bmi, level, weight, height) {
                        level === "intermediate" ? midWeight :
                        minWeight;
     } else {
-        targetWeight = level === "beginner" ? minWeight :
+        targetWeight = level === "beginner" ?  maxWeight:
                       level === "intermediate" ? midWeight :
-                     maxWeight;
+                      minWeight;
     }
 
     let weightDiff = weight - targetWeight;
